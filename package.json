@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/25548038/Huawei_project#readme",
   "devDependencies": {
-    "gulp": "^4.0.0"
+    "gulp": "^4.0.0",
+    "gulp-connect": "^5.7.0",
+    "gulp-sass": "^4.0.2",
+    "node-sass": "^4.11.0"
   }
 }
