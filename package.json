@@ -1,0 +1,22 @@
+{
+  "name": "huawei",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/25548038/Huawei_project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/25548038/Huawei_project/issues"
+  },
+  "homepage": "https://github.com/25548038/Huawei_project#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0"
+  }
+}
