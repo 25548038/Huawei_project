@@ -1,0 +1,12 @@
+@charset "utf-8";
+.head-box{
+    width: 960px;
+    margin: 0 auto;
+}
+
+#head{
+     background: #333;
+     .head-box{
+         height: 67px;
+     }
+}
