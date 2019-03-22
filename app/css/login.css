@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.customer-header{
+    background: #e4e1e1;
+    height: 68px;
+
+}
+.head_center{
+margin: 0 auto;
+height: 68px;
+width: 1130px;
+}
