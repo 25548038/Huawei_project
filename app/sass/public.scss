@@ -489,9 +489,6 @@ $shortcolor:#f9f9f9;
             &:hover i{
                 display: block;
         }
-        span{
-            
-        }
         i{
             position: absolute;
             display: none;
@@ -522,9 +519,6 @@ $shortcolor:#f9f9f9;
             }
             &:hover i{
                 display: block;
-        }
-        span{
-            
         }
         i{
             position: absolute;
@@ -558,9 +552,6 @@ $shortcolor:#f9f9f9;
         &:hover i{
             display: block;
         }
-        span{
-            
-        }
         i{
             position: absolute;
             display: none;
@@ -584,6 +575,8 @@ $shortcolor:#f9f9f9;
 
 //公共尾
 ._maxfoot{
+    width:100%;
+    background: #f9f9f9;
     .slogan-container{
         height:82px;
         background: #f9f9f9;
