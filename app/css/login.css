@@ -1,14 +1,85 @@
-*{
-    margin: 0;
-    padding: 0;
+.login{
+    background-color: #EBEBEB;
 }
 .customer-header{
-    background: #e4e1e1;
     height: 68px;
-
 }
 .head_center{
 margin: 0 auto;
 height: 68px;
-width: 1130px;
+width: 998px;
+}
+.login_bg,.g{
+    height: 590px;
+    background:#081738;
+}
+.main-logo{
+    float: left;
+    padding-top: 15px;
+}
+.website-name{
+    float: left;
+    padding-top: 18px;
+}
+.adHeadT{
+    margin: 0 20px;
+    color: #cccccc;
+}
+.adHeadTitle{
+    font-size: 18px;
+    color: #333333;
+}
+
+.prompt_icon{
+    background-image: url(../images/prompt.png);
+    background-repeat: no-repeat ;
+    background-size: 15px 15px;
+    padding: 0px 20px;
+    text-align: center;
+    line-height: 40px;
+    color: #989898;
+    font-size: 13px;
+}
+
+.login-right{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 530px;
+    position: relative;
+    width: 380px;
+    float: right;
+    background-color: #FFFFFF;
+}
+.login-right .h{
+    margin: 24px auto;
+    text-align: center;
+}
+.login-right .h span{
+    font-size: 20px;
+    color: #333333;
+    font-weight: 500;
+    cursor: pointer;
+    width: 169px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0 10px;
+}
+.table-box{
+    width: 328px;
+    margin: 0 auto;
+}
+.table-box:nth-child(1){
+    height: 46px;
+}
+
+
+
+
+
+.ft {
+    margin: 20px auto;
+    text-align: center;
+    font-size: 12px;
+    color: #999;
 }
