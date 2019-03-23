@@ -18,6 +18,7 @@ $shortcolor:#f9f9f9;
             ul{
                 
                 li{
+                    height: 36px;
                     float:left;                             
                     a{
                         color: #a4a4a4;
@@ -89,6 +90,7 @@ $shortcolor:#f9f9f9;
             height:36px;
             float:right;
             li{
+                height:36px;
                 float:left;
                 a{
                     color: #a4a4a4;
@@ -420,7 +422,7 @@ $shortcolor:#f9f9f9;
 
 .hungBar{
     position: fixed;
-    right: 6px;
+    right: 6px; 
     bottom: 20px;
     height: 166px;
     z-index: 500;
