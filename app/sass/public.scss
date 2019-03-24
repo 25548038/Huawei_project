@@ -544,6 +544,7 @@ $shortcolor:#f9f9f9;
         text-align:center;
         line-height:41px;
         font-weight:900;
+        display:none;
         &:hover{
             color:#a4a4a4;
         }
@@ -853,9 +854,11 @@ $shortcolor:#f9f9f9;
                     dd{
                         height:115px;
                         overflow:hidden;
+                        position: relative;
                         div{
                             height:115px;
                             width:1431px;
+                            position: absolute;
                             ol{
                                 display: block;
                                 float:left;
