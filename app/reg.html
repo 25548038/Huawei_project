@@ -8,6 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>注册</title>
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="font_1102430_wgxk4f93fr/iconfont.css">
+
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/reg.css">
 
@@ -27,9 +29,9 @@
     </div>
     <!-- 注册 -->
     <div class="reg-body">
-        <span class="reg reg-phone">电话注册</span>
-        <span class="reg reg-email">邮箱注册</span>
-        <p>已有华为号<a href="">登入></a></p>
+        <span class="reg reg-phone reg-redBtn"><i class="icon iconfont iconshouji"></i>手机号</span>
+        <span class="reg reg-email"><i class="icon iconfont iconiconfonticon3"></i>电子邮箱</span>
+        <p class="go-login">已有华为号<a href="login.html">登入></a></p>
         <div class="reg-ph">
             <div class="regCon">
                     <form method="POST" action="server/register.php" class="form-box" autocomplete="on" >
@@ -60,7 +62,7 @@
                                 data-error="两次密码输入不一致">
                             <p class=""></p>
                         </div>
-                        <button name="submit" type="submit" class="btn btn-success">确定</button>
+                        <button name="submit" type="submit" class="btn-submit btn btn-success">确定</button>
                     </form>
             </div>
         </div>
