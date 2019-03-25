@@ -423,10 +423,9 @@ $shortcolor:#f9f9f9;
 .hungBar{
     position: fixed;
     right: 6px; 
-    top: 470px;
-    height: 124.5px;
+    bottom: 50px;
+    height: 125px;
     z-index: 500;
-    overflow: hidden;
     background:#ffffff;
         ._hungB1{
         width: 38px;
@@ -540,11 +539,13 @@ $shortcolor:#f9f9f9;
         width: 38px;
         height: 41px;
         display: block;
+        background-color: #fff;
         position: relative;
         font-size:30px;
         text-align:center;
         line-height:41px;
         font-weight:900;
+        display:none;
         &:hover{
             color:#a4a4a4;
         }
@@ -578,7 +579,6 @@ $shortcolor:#f9f9f9;
     background: #f9f9f9;
     .slogan-container{
         height:82px;
-        background: #f9f9f9;
         .slogan{
             border-bottom: 1px solid #e5e5e5;
             width: 1200px;
@@ -597,7 +597,7 @@ $shortcolor:#f9f9f9;
                 }
                 ._sl1{
                     padding-right: 120px;
-                    color: #3a3a3a;
+                    color: #3a3a3a;                 
                     a{
                         span{
                             display: inline-block;

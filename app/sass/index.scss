@@ -1,6 +1,16 @@
 @mixin left{
     float:left;
 }
+@mixin font_1 {
+    font-size: 16px;
+    color: #333;
+    line-height: 40px;
+    display: block;
+}
+@mixin input{
+    float:left;
+    background:#f0f0f0;
+}
 .header-index{
     height:41px;
     background: #fff;
@@ -8,15 +18,14 @@
     .layout{
         width: 1200px;
         margin: 0 auto;
-        background:red;
         height:40.8px;
         
         .left{
             @include left;
             .logo{
                 height:40.8px; 
+                @include left;
                 a{
-                    height:40.8px;
                     img{
                         width:205px;
                         height:40.8px;
@@ -24,6 +33,94 @@
                     }
                 }
             }//logo
+            .naver{
+                @include left;
+                width: 585px;
+                height: 40px;
+                overflow: hidden;
+                .naver-list{
+                    li{
+                        float: left;
+                        margin-right: 24px;
+                    }
+                    .img{
+                        width:74px;
+                        height:24px;
+                        margin-top:7px;
+                        a{
+                            img{
+                                width:74px;
+                                height:24px;
+                            }
+                        }
+                    }//钱2个li
+                    #hauwei{
+                        a{
+                            @include font_1;
+                            &:hover{
+                                color:#ca141d;
+                            }
+                        }
+                    }
+
+                }//logo后面的ul
+            }//logo后面的板块
         }//左边部分
+        .right{
+            float:right;
+            .search-bar{
+                width:320px;
+                height:35px;
+                margin-top: 5px;
+                background: #f0f0f0;
+                border-radius:17px;
+                form{
+                    margin-top:5px;
+                    position: relative;
+                    .recommend{
+                        width:120px;
+                        height:30px;
+                        left:170px;
+                        top:3px;
+                        position:absolute;
+                        a{
+                            font-size:12px;
+                            line-height:30px;
+                            padding-left:5px;
+                            &:hover{
+                                color:#ca141d;
+                            }
+                        }
+                    }
+                    .text{
+                        @include input;
+                        width:275px;
+                        height:25px;
+                        border-radius:15px 0 0 15px;
+                        font-size:12px;
+                        padding:5px 0 0 10px;
+                    }
+                    button{
+                        @include input;
+                        width:35px;
+                        height:30px;
+                        padding:0;
+                        border:0;
+                        padding-top:6px;
+                        border-radius:0 15px 15px 0 ;
+                    }
+                }
+            }
+        }
     }//版心区
 }//头部
+.banner{
+    height:550px;
+    .banner-connet{
+        height:550px;
+        width: 1200px;
+        margin: 0 auto;
+        background: blue;
+        position:relative;
+    }
+}//banner图
