@@ -7,8 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>登录</title>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="font_1102430_wgxk4f93fr/iconfont.css">
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
 </head>
 
 <body class="login">
@@ -27,10 +28,78 @@
     </span>
     <!--登录 -->
     <div class="login_bg" id="loginform" >
-        <div style="background: url('images/login_default_bg.png') no-repeat;width: 1130px;margin: 0 auto;"
-            class="g login_adBg">
-            <div class="login-right">
+        <div style="background: url('images/login_default_bg.png') no-repeat;width: 1130px;margin: 0 auto;" class="g login_adBg">
+            <div class="loginRight">
                <!-- 内容 -->
+               <div>
+                    <div class="box">
+                            <div class="userLogin">
+                                <div class="header">
+                                    <span class="login-h login-left">账号登入</span>
+                                    <span class="login-h login-right">扫码登入</span>
+                                </div>
+                                <div class="login-form" style="display:block" >
+                                    <div class="form-con">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" id="username" placeholder="手机号/邮箱地址/华为号">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="password" id="password" placeholder="密码">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="href-phone">
+                                                        <em class="iconfont iconshouji"></em>
+                                                        <a href="" class="href-phone">短信验证码登入</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <button class="btn btn-danger btn-lg btn-block login-btn">登入</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="login-option">
+                                                    <a href="" class="loginOption">
+                                                        <input form="" type="checkbox">记住华为账号
+                                                    </a>
+                                                    <a href="#" class="more">更多</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="links">
+                                                    <a href="" class="regist">注册账号</a>
+                                                    <a href="" class="forgot">忘记密码？</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="thirdLoginBlock">
+                                        <div class="thirdLintTitle">其他方式登入</div>
+                                        <div class="thirdLoginDiv">
+                                            <span class="third-btn iconfont iconweibo"></span>
+                                            <span class="third-btn iconfont iconanzhuo"></span>
+                                            <span class="third-btn iconfont iconweixin weixin"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="login-hiden" style="display:none">
+                                    <div class="login-img">
+                                        <img class="login-qr-code" src="images/qrCode-over-time.png">
+                                        <div class="login-help"><img src="images/qrCode-help.png" alt=""></div>
+                                    </div>
+                                    <p class="login-text">使用<i>华为移动服务APP</i>扫一扫</br>
+                                        若您使用华为手机，请进入“设置”>“华为帐号”扫码登录。</p>
+                                </div>
+                            </div>
+                        </div>
+               </div>
             </div>
         </div>
     </div>
@@ -55,6 +124,8 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.js"></script>
+    <script src="js/login.js"></script>
 </body>
 
 </html>

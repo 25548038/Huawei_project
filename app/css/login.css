@@ -41,7 +41,7 @@ width: 998px;
     font-size: 13px;
 }
 
-.login-right{
+.loginRight{
     margin-top: 30px;
     margin-bottom: 30px;
     height: 530px;
@@ -49,21 +49,161 @@ width: 998px;
     float: right;
     background-color: rgb(255, 255, 255);
 }
-.login-right .h{
-    margin: 24px auto;
-    text-align: center;
+/* login */
+.box{
+    height: 530px;
+    width: 380px;
 }
-.login-right .h span{
+.userLogin{
+    width: 380px;
+}
+.header{
+    padding: 24px 0;
+    text-align: center;
+    display: block;
+    width: 380px;
+}
+.login-h{
     font-size: 20px;
-    color: #333333;
     font-weight: 500;
-    cursor: pointer;
+    padding:  0 10px;
     width: 169px;
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-    padding: 0 10px;
+    float: left;
 }
+.login-h:hover{
+    color: red;
+}
+.login-left{
+    border-right: 1px solid #cccccc; 
+    cursor: pointer;
+}
+.login-right{
+    border-left: 1px solid #cccccc;
+    cursor: pointer;
+}
+
+.form-con{
+    padding-top: 50px;
+}
+.form-con table{
+    width: 328px;
+    margin: 0 auto;
+}
+#username,#password{
+    width: 328px;
+    height: 48px;
+    border-bottom: 1px solid black;
+}
+.href-phone{
+    color: rgb(0, 0, 255);
+    font-size: 12px;
+    line-height: 45px;
+}
+.href-phone a:hover{
+    color: rgb(11, 11, 224);
+}
+.login-option{
+    padding-top: 20px;
+}
+.login-btn{
+    border-radius: 20px;
+}
+.loginOption{
+    font-size: 12px;
+    line-height: 12px;
+    display: inline-block;
+}
+.more{
+    float: right;
+    font-size: 12px;
+    color: rgb(0, 0, 255);
+}
+.more:hover{
+    color: rgb(11, 11, 224);
+}
+a{
+    text-decoration:none !important;
+}
+.links{
+    padding-top: 10px;
+    font-size: 12px;
+    text-align: center;
+}
+.regist,.forgot{
+    color: rgb(11, 11, 224);
+    padding: 0 5px;
+}
+.regist{
+    border-right: 1px solid #cccccc;
+}
+/* 底部 */
+
+.third-btn{
+    font-size: 42px;
+    float: left;
+    color: #888282;
+    padding: 10px 5px;
+}
+.third-btn:hover{
+    color: rgb(2, 196, 255);
+}
+.weixin:hover{
+    color: rgb(2, 255, 78);
+}
+.thirdLoginBlock{
+    width: 156px;
+    height: 81px;
+    margin: 100px auto 0px; 
+}
+.thirdLintTitle{
+    text-align: center;
+    font-size: 12px;
+    color: #a8a4a4;
+}
+/* 扫码 */
+.login-hiden{
+    width: 380px;
+}
+.login-img{
+    width: 380px;
+    height: 318px;
+    position: relative;
+}
+.login-qr-code{
+    border: 1px;
+    width: 162px;
+    padding-top: 80px;
+    position: absolute;
+    top: 0; left: 103px;
+    transition: 1s;        
+
+}
+.login-help{
+    width: 130px;
+    height: 214px;
+    position: absolute;
+    top: 50px; right: 19px;
+    opacity: 0;
+    transition: 0.5s;
+
+}
+.login-img:hover .login-qr-code{
+    left: 20px;
+    transition: 1s;
+}
+.login-img:hover .login-help{
+    opacity: 1;
+    transition: 1s;        
+}
+.login-text{
+    font-size: 12px;
+    text-align: center;
+    line-height: 24px;
+}
+.login-text i{
+    color: rgb(11, 11, 224);
+}
+
 .table-box{
     width: 328px;
     margin: 0 auto;
@@ -72,10 +212,7 @@ width: 998px;
     height: 46px;
 }
 
-
-
-
-
+/* foot */
 .ft {
     margin: 20px auto;
     text-align: center;
