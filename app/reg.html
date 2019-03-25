@@ -1,12 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- 头 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>注册</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/reg.css">
+
 </head>
+
 <body>
-    
+    <div class="head-background">
+        <div class="head_center">
+            <div class="main-logo adHeadPicContainer">
+                <img src="images/head-top.png" class="wihteBgPic">
+            </div>
+            <div class="website-name">
+                <b>|</b>
+                <b>华为商城</b>
+            </div>
+        </div>
+    </div>
+    <!-- 注册 -->
+    <div class="reg-body">
+        <span class="reg reg-phone">电话注册</span>
+        <span class="reg reg-email">邮箱注册</span>
+        <p>已有华为号<a href="">登入></a></p>
+        <div class="reg-ph">
+            <div class="regCon">
+                    <form method="POST" action="server/register.php" class="form-box" autocomplete="on" >
+                        <div class="form-group">
+                            <label for="username">用户名</label>
+                            <input type="text" required class="form-control" id="username" name="username" placeholder="请输入用户名" data-error="需要输入6-13位的字母或者下划线">
+                            <p class=""></p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">手机号</label>
+                            <input type="text" required class="form-control" id="phone" name="phone" placeholder="请输入手机号" data-error="手机号格式不正确">
+                            <p class=""></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="age">年龄</label>
+                            <input class="form-control" type="number" name="age">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">密码</label>
+                            <input placeholder="请输入密码" required type="password" class="form-control" id="password" name="password" placeholder="请设置密码"
+                                data-error="密码格式不正确">
+                            <p class=""></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="repassword">再次输入密码</label>
+                            <input type="password" class="form-control" name="repassword" id="repassword" placeholder="请设置密码"
+                                data-error="两次密码输入不一致">
+                            <p class=""></p>
+                        </div>
+                        <button name="submit" type="submit" class="btn btn-success">确定</button>
+                    </form>
+            </div>
+        </div>
+        <div class="reg-em" style="display:none">
+
+        </div>
+
+    </div>
+
+
+    <!-- 尾部 -->
+    <div class="wp1 ft">
+        <div class="reg-content">
+            <p class="footer">
+                <a id="foot_EULA" href="#" class="rule" target="_blank">华为帐号用户协议</a>
+                <em class="foot_em">|</em>
+                <a id="foot_privacy" href="#" class="rule" target="_blank">关于华为帐号与隐私的声明</a>
+                <span id="faqPart" class="foot_em"><em style="font-style: normal">|</em> <a style="padding:0 10px;"
+                        target="blank" href="#">常见问题</a></span>
+            </p>
+            <p id="copyrightPart" class="footer">
+                Copyright&nbsp;©&nbsp;2011-2019&nbsp;&nbsp;华为软件技术有限公司&nbsp;&nbsp;版权所有&nbsp;&nbsp;保留一切权利&nbsp;&nbsp;苏B2-20070200号&nbsp;|&nbsp;苏ICP备09062682号-9
+            </p>
+        </div>
+    </div>
+    <script src="js/reg.js"></script>
 </body>
+
 </html>

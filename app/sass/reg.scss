@@ -1,0 +1,60 @@
+body{
+    background: #f2f2f2;
+}
+.head-background{
+    height: 68px;
+    background: #333333;
+}
+.head_center{
+margin: 0 auto;
+height: 68px;
+width: 960px;
+}
+.main-logo{
+    float: left;
+    padding-top: 15px;
+}
+.website-name {
+    color: white;
+    padding-top: 23px;
+    b{
+        padding-left: 15px;
+        font-size: 18px;
+    }
+}
+// 电话注册
+.form-control{
+    border: 0;
+    box-shadow: none;
+    outline:none;
+}
+
+
+.reg-ph{
+    min-height: 400px;
+    width: 960px;
+    background: white;
+    margin: 68px auto;
+}
+.regCon{
+    width: 420px;
+    margin: 0 auto;
+}
+
+
+
+
+// 邮箱注册
+
+
+// 尾部
+.wp1 {
+    width: 100%;
+    margin: 0px auto;
+}
+.ft {
+    margin: 30px auto;
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+}
