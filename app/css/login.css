@@ -45,10 +45,9 @@ width: 998px;
     margin-top: 30px;
     margin-bottom: 30px;
     height: 530px;
-    position: relative;
     width: 380px;
     float: right;
-    background-color: #FFFFFF;
+    background-color: rgb(255, 255, 255);
 }
 .login-right .h{
     margin: 24px auto;
@@ -83,3 +82,4 @@ width: 998px;
     font-size: 12px;
     color: #999;
 }
+
