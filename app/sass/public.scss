@@ -423,9 +423,10 @@ $shortcolor:#f9f9f9;
 .hungBar{
     position: fixed;
     right: 6px; 
-    bottom: 20px;
-    height: 166px;
+    top: 470px;
+    height: 124.5px;
     z-index: 500;
+    overflow: hidden;
     background:#ffffff;
         ._hungB1{
         width: 38px;
@@ -544,7 +545,6 @@ $shortcolor:#f9f9f9;
         text-align:center;
         line-height:41px;
         font-weight:900;
-        display:none;
         &:hover{
             color:#a4a4a4;
         }

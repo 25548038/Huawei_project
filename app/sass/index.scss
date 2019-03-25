@@ -1,5 +1,29 @@
-.header-index{
-    height:74px;
-    background: red;
-
+@mixin left{
+    float:left;
 }
+.header-index{
+    height:41px;
+    background: #fff;
+    padding:18px 0 15px 0;
+    .layout{
+        width: 1200px;
+        margin: 0 auto;
+        background:red;
+        height:40.8px;
+        
+        .left{
+            @include left;
+            .logo{
+                height:40.8px; 
+                a{
+                    height:40.8px;
+                    img{
+                        width:205px;
+                        height:40.8px;
+                        margin-right:34px;
+                    }
+                }
+            }//logo
+        }//左边部分
+    }//版心区
+}//头部

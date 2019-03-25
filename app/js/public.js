@@ -24,10 +24,10 @@ window.onload=function(){
     window.onscroll=function(){
         var scrollTop = document.documentElement.scrollTop;
         if(scrollTop>=500){
-            $back_top.style.display="block";   
+            $back_top.style.height=166+"px";   
         }
         else if(scrollTop<500){
-            $back_top.style.display="none"; 
+            $back_top.style.height=124.5+"px"; 
         }
     }
 }
