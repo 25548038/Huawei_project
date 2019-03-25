@@ -1,7 +1,3 @@
-.shortcut,.hungBar,._maxfoot{
-    box-sizing:border-box;
-}
-
 .shortcut .layout{
     width: 1200px;
     margin: 0 auto;
@@ -22,6 +18,7 @@ $shortcolor:#f9f9f9;
             ul{
                 
                 li{
+                    height: 36px;
                     float:left;                             
                     a{
                         color: #a4a4a4;
@@ -93,6 +90,7 @@ $shortcolor:#f9f9f9;
             height:36px;
             float:right;
             li{
+                height:36px;
                 float:left;
                 a{
                     color: #a4a4a4;
@@ -424,7 +422,7 @@ $shortcolor:#f9f9f9;
 
 .hungBar{
     position: fixed;
-    right: 6px;
+    right: 6px; 
     bottom: 20px;
     height: 166px;
     z-index: 500;
@@ -489,8 +487,6 @@ $shortcolor:#f9f9f9;
             &:hover i{
                 display: block;
         }
-          
-        
         i{
             position: absolute;
             display: none;
@@ -522,7 +518,6 @@ $shortcolor:#f9f9f9;
             &:hover i{
                 display: block;
         }
-       
         i{
             position: absolute;
             display: none;
@@ -549,13 +544,13 @@ $shortcolor:#f9f9f9;
         text-align:center;
         line-height:41px;
         font-weight:900;
+        display:none;
         &:hover{
             color:#a4a4a4;
         }
         &:hover i{
             display: block;
         }
-       
         i{
             position: absolute;
             display: none;
@@ -579,6 +574,7 @@ $shortcolor:#f9f9f9;
 
 //公共尾
 ._maxfoot{
+    width:100%;
     background: #f9f9f9;
     .slogan-container{
         height:82px;
@@ -633,7 +629,7 @@ $shortcolor:#f9f9f9;
                     }
                 }//第二个li
                 ._sl3{
-                    padding-right: 105px;
+                    padding-right: 110px;
                     color: #3a3a3a;
                     a{
                         span{
@@ -857,9 +853,11 @@ $shortcolor:#f9f9f9;
                     dd{
                         height:115px;
                         overflow:hidden;
+                        position: relative;
                         div{
                             height:115px;
                             width:1431px;
+                            position: absolute;
                             ol{
                                 display: block;
                                 float:left;

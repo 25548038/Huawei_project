@@ -5,8 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/public.js"></script>
 </head>
 <body>
-    <a href="public.html">公共头和尾</a>
+    <div class="shortcut1"></div>
+    <div class="header-index">
+        <div class="layout"></div>
+    </div>
+    <div class="hungBar1"></div>
+    <div class="footer"></div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script>
+        $('.shortcut1').load('public.html .shortcut')
+        $('.hungBar1').load('public.html .hungBar')
+        $('.footer').load('public.html ._maxfoot')
+    </script>
 </body>
 </html>
