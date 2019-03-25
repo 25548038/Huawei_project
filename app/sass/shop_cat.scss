@@ -332,7 +332,12 @@ $bg-color:#ca141d;
                     width: 214px;
                     height: 24px;
                     position: relative;
-
+                    &:hover{
+                        background: #fff;
+                        .p-list{
+                            display: block;
+                        }
+                    }
                     .p-name {
                         float: left;
 
@@ -355,15 +360,15 @@ $bg-color:#ca141d;
                         line-height: 50px;
                         padding-left: 20px;
                         display: none;
-                    
-                        &>h2{
+                        
+                        &>h2 {
                             float: left;
                             color: #000;
                         }
 
                         &>ul>li {
                             color: #000;
-                            width: 200px ;
+                            width: 200px;
                             float: left;
                             margin-left: 20px;
                         }
@@ -377,9 +382,10 @@ $bg-color:#ca141d;
                         margin: 4px 10px;
                         background: url(../images/bg-2.png) -4px -5px no-repeat;
                     }
-                          .p-service-hov{
-                                background:url(../images/bg-2.png) no-repeat -5px -24px;
-                            }
+
+                    .p-service-hov {
+                        background: url(../images/bg-2.png) no-repeat -5px -24px;
+                    }
                 }
             }
 
@@ -496,7 +502,7 @@ $bg-color:#ca141d;
 
         .swiper {
             position: relative;
-            width: 1110px ;
+            width: 1110px;
             height: 240px;
             padding: 0 35px;
             overflow: hidden;
@@ -530,7 +536,7 @@ $bg-color:#ca141d;
                     float: left;
                     width: 222px;
                     height: 240px;
-                   
+
 
                     &>img {
                         width: 134px;
