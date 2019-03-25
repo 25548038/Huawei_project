@@ -1,4 +1,4 @@
-*{
+.shortcut,.hungBar,._maxfoot{
     box-sizing:border-box;
 }
 
@@ -489,9 +489,8 @@ $shortcolor:#f9f9f9;
             &:hover i{
                 display: block;
         }
-        span{
-            
-        }
+          
+        
         i{
             position: absolute;
             display: none;
@@ -523,9 +522,7 @@ $shortcolor:#f9f9f9;
             &:hover i{
                 display: block;
         }
-        span{
-            
-        }
+       
         i{
             position: absolute;
             display: none;
@@ -558,9 +555,7 @@ $shortcolor:#f9f9f9;
         &:hover i{
             display: block;
         }
-        span{
-            
-        }
+       
         i{
             position: absolute;
             display: none;
@@ -584,9 +579,9 @@ $shortcolor:#f9f9f9;
 
 //公共尾
 ._maxfoot{
+    background: #f9f9f9;
     .slogan-container{
         height:82px;
-        background: #f9f9f9;
         .slogan{
             border-bottom: 1px solid #e5e5e5;
             width: 1200px;
@@ -605,7 +600,7 @@ $shortcolor:#f9f9f9;
                 }
                 ._sl1{
                     padding-right: 120px;
-                    color: #3a3a3a;
+                    color: #3a3a3a;                 
                     a{
                         span{
                             display: inline-block;
@@ -638,7 +633,7 @@ $shortcolor:#f9f9f9;
                     }
                 }//第二个li
                 ._sl3{
-                    padding-right: 120px;
+                    padding-right: 105px;
                     color: #3a3a3a;
                     a{
                         span{

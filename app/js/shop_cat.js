@@ -2,6 +2,8 @@ define(['jquery', 'common/common'], function($, public) {
     var xx;
     return {
         init(){
+            $('.top-header').load('public.html .shortcut');
+            $('.foot-box').load('public.html ._maxfoot');
             this.event();
 
         },

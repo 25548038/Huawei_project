@@ -69,7 +69,7 @@ $bg-color:#ca141d;
 
     .header-box {
         height: 50px;
-        padding: 10px 0;
+        // padding: 10px 0;
         background: #fff;
 
         .left {
@@ -489,13 +489,14 @@ $bg-color:#ca141d;
     }
 
     .shop-box {
-        height: 240px;
+        height: 278px;
         background: #fff;
         padding: 20px 10px 18px;
+        margin-bottom: 60px;
 
         .swiper {
             position: relative;
-            width: 1110px;
+            width: 1110px ;
             height: 240px;
             padding: 0 35px;
             overflow: hidden;
@@ -529,6 +530,7 @@ $bg-color:#ca141d;
                     float: left;
                     width: 222px;
                     height: 240px;
+                   
 
                     &>img {
                         width: 134px;
