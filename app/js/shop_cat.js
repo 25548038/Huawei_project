@@ -1,10 +1,6 @@
-define(['jquery', 'common/common'], function($, public) {
-    var xx;
+define(['jquery'], function($, public) {
     return {
         init(){
-            $('.top-header').load('public.html .shortcut');
-            $('.foot-box').load('public.html ._maxfoot');
-            $('.ico-fied').load('public.html .hungBar');
             this.event();
 
         },
