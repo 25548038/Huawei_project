@@ -2,20 +2,20 @@
 <html lang="en">
 
 <head>
-    <!-- 头 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>注册</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="font_1102430_wgxk4f93fr/iconfont.css">
-
+    
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/reg.css">
-
+    
 </head>
 
 <body>
+        <!-- 头 -->
     <div class="head-background">
         <div class="head_center">
             <div class="main-logo adHeadPicContainer">
@@ -29,36 +29,37 @@
     </div>
     <!-- 注册 -->
     <div class="reg-body">
-        <span class="reg reg-phone reg-redBtn"><i class="icon iconfont iconshouji"></i>手机号</span>
-        <span class="reg reg-email"><i class="icon iconfont iconiconfonticon3"></i>电子邮箱</span>
-        <p class="go-login">已有华为号<a href="login.html">登入></a></p>
-        <div class="reg-ph">
+        <div class="reg-ph" style="display:block">
+            <span class="reg reg-phone reg-redBtn reg-btn1"><i class="icon iconfont iconshouji"></i>手机号</span>
+            <span class="reg reg-email reg-btn2"><i class="icon iconfont iconiconfonticon3"></i>电子邮箱</span>
+            <p class="go-login">已有华为号<a href="login.html">登入></a></p>
             <div class="regCon">
-                    <form method="POST" action="server/register.php" class="form-box" autocomplete="on" >
+                    <form method="POST" action="" class="form-box" autocomplete="on" >
                         <div class="form-group">
                             <label for="username">用户名</label>
-                            <input type="text" required class="form-control" id="username" name="username" placeholder="请输入用户名" data-error="需要输入6-13位的字母或者下划线">
+                            <input type="text" required class="form-control text-zz" id="username" name="username" placeholder="请输入用户名" data-error="需要输入6-13位的字母或者下划线">
                             <p class=""></p>
                         </div>
                         
                         <div class="form-group">
                             <label for="phone">手机号</label>
-                            <input type="text" required class="form-control" id="phone" name="phone" placeholder="请输入手机号" data-error="手机号格式不正确">
+                            <input type="text" required class="form-control text-zz" id="phone" name="phone" placeholder="请输入手机号" data-error="手机号格式不正确">
                             <p class=""></p>
                         </div>
                         <div class="form-group">
                             <label for="age">年龄</label>
-                            <input class="form-control" type="number" name="age">
+                            <input class="form-control text-zz" type="number" name="age" id="age">
+                            <p class=""></p>
                         </div>
                         <div class="form-group">
                             <label for="password">密码</label>
-                            <input placeholder="请输入密码" required type="password" class="form-control" id="password" name="password" placeholder="请设置密码"
+                            <input placeholder="请输入密码" required type="password" class="form-control text-zz" id="password" name="password" placeholder="请设置密码"
                                 data-error="密码格式不正确">
                             <p class=""></p>
                         </div>
                         <div class="form-group">
-                            <label for="repassword">再次输入密码</label>
-                            <input type="password" class="form-control" name="repassword" id="repassword" placeholder="请设置密码"
+                            <label for="repassword">确认密码</label>
+                            <input type="password" class="form-control text-zz" name="repassword" id="repassword" placeholder="请再次输入密码"
                                 data-error="两次密码输入不一致">
                             <p class=""></p>
                         </div>
@@ -67,7 +68,42 @@
             </div>
         </div>
         <div class="reg-em" style="display:none">
-
+                <span class="reg reg-phone reg-btn3"><i class="icon iconfont iconshouji"></i>手机号</span>
+                <span class="reg reg-email reg-redBtn reg-btn4"><i class="icon iconfont iconiconfonticon3"></i>电子邮箱</span>
+                <p class="go-login">已有华为号<a href="login.html">登入></a></p>
+                <div class="regCon">
+                        <form method="POST" action="" class="form-box11" autocomplete="on" >
+                            <div class="form-group">
+                                <label for="username1">用户名</label>
+                                <input type="text" required class="form-control" id="username1" name="username" placeholder="请输入用户名" data-error="需要输入6-13位的字母或者下划线">
+                                <p class=""></p>
+                            </div>
+                            <div class="form-group">
+                                <label for="email1">邮箱</label>
+                                <input type="email" required class="form-control" name="email" id="email1" placeholder="请输入您的邮箱账号"
+                                    data-error="邮箱格式有误">
+                                <p class=""></p>
+                            </div>
+                            <div class="form-group">
+                                <label for="age1">年龄</label>
+                                <input class="form-control" type="number" name="age">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="password1">密码</label>
+                                <input placeholder="请输入密码" required type="password" class="form-control" id="password1" name="password" placeholder="请设置密码"
+                                    data-error="密码格式不正确">
+                                <p class=""></p>
+                            </div>
+                            <div class="form-group">
+                                <label for="repassword">确认密码</label>
+                                <input type="password" class="form-control" name="repassword" id="repassword1" placeholder="请再次输入密码"
+                                    data-error="两次密码输入不一致">
+                                <p class=""></p>
+                            </div>
+                            <button name="submit" type="submit" class="btn-submit btn btn-success">确定</button>
+                        </form>
+                </div>
         </div>
 
     </div>
@@ -88,7 +124,10 @@
             </p>
         </div>
     </div>
+    <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.js"></script>
     <script src="js/reg.js"></script>
+    <script>
+    </script>
 </body>
 
 </html>
