@@ -46,3 +46,4 @@ define(['jquery', 'loading'], (function($, public) {
     }
 
 }));
+
