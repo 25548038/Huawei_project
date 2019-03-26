@@ -1,12 +1,13 @@
 require.config({
     paths: {
         'jquery': 'https://cdn.staticfile.org/jquery/3.3.1/jquery',
-        'loading' : './loading'     
+        'loading' : './loading'    
     }
 })
 
-require(['jquery', 'loading'], function($,loading){
+require(['jquery', 'loading', 'public'], function($,loading,public){
     loading.init();
+    public.init();
 })
 
 require(['jquery', 'shop_cat'], function ($, swiper) {

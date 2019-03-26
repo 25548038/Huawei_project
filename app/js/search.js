@@ -12,7 +12,6 @@ define(['jquery'], function($,public) {
             $btn = $('.btn');
             $swp = $('.swp');
             $recommend = $('.recommend');
-            console.log($swp)
             this.event();
             
         },

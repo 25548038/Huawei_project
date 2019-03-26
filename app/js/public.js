@@ -1,4 +1,4 @@
-define(['jquery', 'loading'], (function ($, public) {
+define(['jquery', 'loading'], (function($, public) {
     var $friend_l,
         $friend_2,
         $btn_l,
@@ -15,6 +15,7 @@ define(['jquery', 'loading'], (function ($, public) {
             $back_top = $('#back_top');
             width_1 = $friend_2.clientWidth;
             this.event();
+            console.log($friend_2)
         },
         event(){
 
@@ -36,9 +37,9 @@ define(['jquery', 'loading'], (function ($, public) {
             window.onscroll = function () {
                 var scrollTop = document.documentElement.scrollTop;
                 if (scrollTop >= 500) {
-                    $back_top.style.display = "block";
+                    $back_top.css('display','block')
                 } else if (scrollTop < 500) {
-                    $back_top.style.display = "none";
+                    $back_top.css('display','none');
                 }
             }
         }
