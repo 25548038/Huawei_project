@@ -38,17 +38,17 @@
                                     <span class="login-h login-left">账号登入</span>
                                     <span class="login-h login-right">扫码登入</span>
                                 </div>
-                                <div class="login-form" style="display:block" >
+                                <form method="POST" action="server/login.php" class="login-form" style="display:block" >
                                     <div class="form-con">
                                         <table>
                                             <tr>
                                                 <td>
-                                                    <input type="text" id="username" placeholder="手机号/邮箱地址/华为号">
+                                                    <input type="text" id="username" name="username" placeholder="手机号/邮箱地址/华为号">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <input type="password" id="password" placeholder="密码">
+                                                    <input type="password" id="password" name="password" placeholder="密码">
                                                 </td>
                                             </tr>
                                             <tr>
@@ -88,7 +88,7 @@
                                             <span class="third-btn iconfont iconweixin weixin"></span>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                                 <div class="login-hiden" style="display:none">
                                     <div class="login-img">
                                         <img class="login-qr-code" src="images/qrCode-over-time.png">

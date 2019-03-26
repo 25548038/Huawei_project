@@ -39,7 +39,7 @@ var checkInput = (function () {
             $inputAll = document.querySelectorAll('.text-zz');
             $btn = document.querySelector('.btn');
             this.event();
-            console.log($inputAll);
+            
         },
         event() {
             const self = this;
@@ -68,13 +68,14 @@ var checkInput = (function () {
                 for (let i = 0; i < $inputAll.length; i++) {
                     const $input = $inputAll[i];
                     const $p = $input.nextElementSibling;
-                    if ($p.className != 'bg-succ') {
+                    const $box = $p.parentNode;
+                    if ($box.className != 'bg-succ') {
                         $input.focus();
                         return;
                     }
                 }
-                alert('所有表单验证成功');
             }
+           
         },
         tips($input) {
             // 根据不同的表单， 使用不同的正则表达式
@@ -98,6 +99,7 @@ var checkInput = (function () {
 }())
 // 初始化项目
 checkInput.init();
+
 
 
 
