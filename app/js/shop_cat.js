@@ -1,5 +1,5 @@
 define(['jquery'], function ($, public) {
-    let $btn_left, $btn_right, $swi_box, $del, $inpt, $hua,$box,showData,$shopNum,num,$shop_list,$inptlist;
+    let $btn_left, $btn_right, $swi_box, $del, $inpt, $hua,$box,showData,$shopNum,$shop_list,$inptlist,$manoy,$Subtotal,$Selection,num = 0,$modal,Total,$addshop;
     return {
         init() {
             $box = $('#content');
@@ -12,8 +12,12 @@ define(['jquery'], function ($, public) {
             $inptlist = $('.input')
             $hua = $('.hua');
             $shopNum = $('.p-stock-area');
-            $shop_list = $('.sc-pro-list')
-            num = 0;
+            $shop_list = $('.sc-pro-list');
+            $manoy = $('.number');
+            $Subtotal = $('.maney');
+            $modal = $('.modal-footer');
+            $addshop = $('.addshop');
+            console.log($addshop)
             this.event(showData);
         },
         event(showData) {
@@ -29,15 +33,22 @@ define(['jquery'], function ($, public) {
             //选中
             for (let i = 0; i < $hua.length; i++) {
                 $hua[i].onclick = (function () {
-                    let flag;     
+                    let flag;
                     return function () {
+                        Total = $($Subtotal[i]).html().replace(/[^0-9]/ig,'') -0;
+                    
                         flag = $($hua[i]).hasClass('checked');
-                        console.log(flag)
                         if (!flag) {
-                            $(this).addClass('checked');      
+                            $(this).addClass('checked'); 
+                            num += showData[i].num ;
+                            $('.Total').html('¥&nbsp;'+Total);  
                         } else {
                             $(this).removeClass('checked');
+                            Total -= Total;
+                            num -=showData[i].num
+                            $('.Total').html('¥&nbsp;'+Total);
                         }
+                        $('.total').children('i').html(num)
                     }
                 }())
             }
@@ -46,52 +57,79 @@ define(['jquery'], function ($, public) {
                 var flag = true;
                $hua.each(function(x){
                 if(!$($hua[x]).hasClass('checked')) {
-                    console.log(1)
                     $inpt.removeClass('checked')
                     flag = false;
                 }
                })
-               if(flag) $inpt.addClass('checked')
+               if(flag) {
+                   $inpt.addClass('checked');
+                   console.log($hua.length)
+                   
+            }
             })
             //全选
             $inpt.on('click',(function(){
                 let flag;       
                 return function () {
-                    $inpt.each(function(x){
-                    flag = $($inpt[x]).hasClass('checked');
+                    Total = $($Subtotal).html().replace(/[^0-9]/ig,'') -0;
+                    $hua.each(function(x){
+                        flag = $($hua[x]).hasClass('checked');
+                        num += showData[x].num;
+                        return;
                     })
-                    console.log(flag)
                     if (!flag) {
                         $inptlist.addClass('checked');
+                        $('.total').children('i').html(num)
+                        $('.Total').html('¥&nbsp;'+Total);
                     } else {
+                        num = 0;
+                        Total = 0;
                         $inptlist.removeClass('checked');
+                        $('.total').children('i').html(num)
+                        $('.Total').html('¥&nbsp;'+Total);
                     }
                 }
             })())
             //删除选中
-            $box.on('click', '.btn_del', function(){
+            $box.on('click','.del',function(){
+                let index = $(this).index('.del');
+               $modal.children('.btn-del').attr('attr-id',index)
+            })
+            $modal.on('click', '.btn-del', function(){
                 var self = $(this),
-                 index = self.index('.btn_del'),
-                 datalist = $shop_list;
-                //  datalist[index].remove();
-                //  datalist.splice(index,1);
-                 if(index == datalist.length){
-                     console.log(1)
-                 }
+                 index = self.attr('attr-id');
+                 showData.splice(index, 1);
+                 _this.insertData(showData);
+                 // 更新本地数据
+                 _this.addShop(showData);
+                 console.log( $('.modal'))
                 console.log(index)
-                console.log(datalist)
             })
             //加商品
             $shopNum.on('click','.plus',function(){
                 let index = $(this).index('.plus'),
                 val = showData[index].num,
                 maney = showData[index].maney;
+                Total +=maney;
                 val++;
-                $('.number').val(val);
-                $('.maney').html('¥&nbsp;'+maney*val);
+                $($manoy[index]).val(val);
+                $($Subtotal[index]).html('¥&nbsp;'+maney*val);
+                
                showData[index].num = val ;
                 _this.addShop();
-                // _this.insertData(showData);
+                if(val > 0){
+                    $('.reduce').removeClass('cat')
+                }
+                    flag = $($hua[index]).hasClass('checked');
+                    if(flag){
+                        console.log(val,Total)
+                        num ++;
+                        $('.Total').html('¥&nbsp;'+Total); 
+                        $('.total').children('i').html(num);
+                        flag = false;
+                        return false;
+                    }
+            //    _this.insertData(showData)
                 console.log(maney)
 
             })
@@ -100,33 +138,58 @@ define(['jquery'], function ($, public) {
                 let index = $(this).index('.reduce'),
                 val = showData[index].num,
                 maney = showData[index].maney;
+                Total -=maney;
                 val--;
-                $('.number').val(val);
-                $('.maney').html('¥&nbsp;'+maney*val);
+                // console.log($($manoy[index]))
+                $($manoy[index]).val(val);
+                $($Subtotal[index]).html('¥&nbsp;'+maney*val);
                 showData[index].num = val;
                 _this.addShop();
                 if(val<=0){
-                    $(this).css('pointer-events','none')
-                    // e.stopPropatation || e.cancelBubble = true;
-                    console.log($(this))
+                    $(this).addClass('cat')
+                }else{
+                    $(this).removeClass('cat')
                 }
+                flag = $($hua[index]).hasClass('checked');
+                    if(flag){
+                        console.log(val)
+                        num --;
+                        $('.total').children('i').html(num);
+                        $('.Total').html('¥&nbsp;'+Total);
+                        flag = false;
+                        return false;
+                    }
                 console.log(index)
             })
             //文本框
             $('.number').on('change',function(){
                 let index = $(this).index('.number'),
-                val = $('.number').val(),
-                maney = showData[index].maney;
+                val = $($('.number')[index]).val(),
+                maney = showData[index].maney,
+                arr = [];
                 $('.maney').html('¥&nbsp;'+maney*val);
-                showData[index].num = val;
-                _this.addShop();
-                console.log(index,maney,val)
+                flag = $($hua[index]).hasClass('checked');
+                    if(flag){
+                        num = val - 0;  
+                        $('.total').children('i').html(num);
+                    }
+                        for(let i = 0; i< arr.length;i++){
+                            if(arr[i]===arr[i+1] && arr[i] === true){
+                                console.log(val)
+                            }
+                        }        
+                
+                showData[index].num = val - 0;
+                _this.addShop(showData[index]);
+            })
+            $addshop.on('click',function(){
+                alert(1)
+                _this.shopData();
             })
         },
         //获取数据
         getCarData() {
             var data = localStorage.shopData;
-            console.log(localStorage.length == 0,data)
             if(localStorage.length == 0){
                 this.empty();
             }else{
@@ -137,6 +200,9 @@ define(['jquery'], function ($, public) {
         insertData(data){
             $box.html('');
             showData = data;
+            if(data == ''){
+                this.empty();
+            }else{
             for(var attr in data){
                 var innerHTML = `
                 <div class="sc-pro-list">
@@ -146,7 +212,7 @@ define(['jquery'], function ($, public) {
             <div class="sc-pro-area">
                 <div class="sc-pro-main">
                     <a href="#">
-                        <img src="./images/${data[attr].img}" alt="">
+                        <img src="./${data[attr].img}" alt="">
                     </a>
                     <ul>
                         <li>
@@ -158,15 +224,15 @@ define(['jquery'], function ($, public) {
                         <li>
                             <div class="p-stock-area">
                                 <input type="number" class="number" value="${data[attr].num}">
-                                <p class="plus">+</p>
-                                <p class="reduce">-</p>
+                                <b class="plus">+</b>
+                                <b class="reduce">-</b>
                             </div>
                         </li>
                         <li class="maney">
                             ¥&nbsp;${data[attr].num * data[attr].maney}
                         </li>
                         <li>
-                            <b class="btn_del">删除</b>
+                            <b class="del" data-toggle='modal' data-target='.bs-example-modal-sm'>删除</b>
                         </li>
                     </ul>
                 </div>
@@ -232,6 +298,7 @@ define(['jquery'], function ($, public) {
             </div>
         </div>
         `;
+        $box.append(innerHTML)
             }
             if(!$box.hasClass('sc-total-tool')){
             let txt = `
@@ -239,92 +306,19 @@ define(['jquery'], function ($, public) {
             <label class="checkbox">
                 <input  readonly="readonly" class="quan input">全选
             </label>
-            <b class="btn_del">删除</b>
+            <b data-toggle='modal' data-target='.bs-example-modal-sm' class="del">删除</b>
             <button>立即结算</button>
             <div class="sc-total-price">
                 <p>
                     <b>总计:</b>
-                    <span>¥&nbsp;3999</span>
+                    <span class="Total">¥&nbsp;0</span>
                 </p>
                 <div class="total">
                     已选择 <i> 0 </i> 件商品
                 </div>
             </div>
         </div>
-        <h2>推荐搭配</h2>
-        <div class="shop-box">
-            <div class="swiper">
-                <div class="swiper-list">
-                    <div class="swiper-box">
-                        <img src="./images/5.png" alt="">
-                        <p>HUAWEI M-Pen （HUAWEI Mate 20 X专用）</p>
-                        <p>¥&nbsp;299</p>
-                        <p>
-                            <a href="#">加入购物车</a>
-                        </p>
-                    </div>
-                    <div class="swiper-box">
-                        <img src="./images/6.png" alt="">
-                        <p>HUAWEI M-Pen （HUAWEI Mate 20 X专用）</p>
-                        <p>¥&nbsp;299</p>
-                        <p>
-                            <a href="#">加入购物车</a>
-                        </p>
-                    </div>
-                    <div class="swiper-box">
-                        <img src="./images/4.png" alt="">
-                        <p>HUAWEI M-Pen （HUAWEI Mate 20 X专用）</p>
-                        <p>¥&nbsp;299</p>
-                        <p>
-                            <a href="#">加入购物车</a>
-                        </p>
-                    </div>
-                    <div class="swiper-box">
-                        <img src="./images/2.png" alt="">
-                        <p>HUAWEI M-Pen （HUAWEI Mate 20 X专用）</p>
-                        <p>¥&nbsp;299</p>
-                        <p>
-                            <a href="#">加入购物车</a>
-                        </p>
-                    </div>
-                    <div class="swiper-box">
-                            <img src="./images/8.png" alt="">
-                            <p>HUAWEI M-Pen （HUAWEI Mate 20 X专用）</p>
-                            <p>¥&nbsp;299</p>
-                            <p>
-                                <a href="#">加入购物车</a>
-                            </p>
-                        </div>
-                        <div class="swiper-box">
-                                <img src="./images/2.png" alt="">
-                                <p>HUAWEI M-Pen （HUAWEI Mate 20 X专用）</p>
-                                <p>¥&nbsp;299</p>
-                                <p>
-                                    <a href="#">加入购物车</a>
-                                </p>
-                            </div>
-                            <div class="swiper-box">
-                                <img src="./images/2.png" alt="">
-                                <p>HUAWEI M-Pen （HUAWEI Mate 20 X专用）</p>
-                                <p>¥&nbsp;299</p>
-                                <p>
-                                    <a href="#">加入购物车</a>
-                                </p>
-                            </div>
-                            <div class="swiper-box">
-                                <img src="./images/2.png" alt="">
-                                <p>HUAWEI M-Pen （HUAWEI Mate 20 X专用）</p>
-                                <p>¥&nbsp;299</p>
-                                <p>
-                                    <a href="#">加入购物车</a>
-                                </p>
-                            </div>
-
-                </div>
-                <span class="left"></span>
-                <span class="right"></span>
-            </div>
-        </div> `,
+         `,
         top = `<div class="clearfix">
         <label class="checkbox">
             <input readonly="readonly" class="quan input">全选
@@ -337,8 +331,8 @@ define(['jquery'], function ($, public) {
             <li>操作</li>
         </ul>
     </div>`;
-                $box.append(top).append(innerHTML).append(txt);
-            }
+                $box.prepend(top).append(txt);
+            }}
         },
         empty(){
             $box.html('');
@@ -353,7 +347,42 @@ define(['jquery'], function ($, public) {
             
         ,
         addShop(){
+          
             localStorage.shopData = JSON.stringify(showData);
+
+        },
+        shopData(){
+            let _this = this
+            $.ajax({
+                url:"../json/shopData.json",
+                type:"get",
+                async: false,
+                dataType : 'json',
+                success: function(data){
+                    _this.addShop(data.data)
+                    console.log(data.data)
+                    return data;
+                }
+            })
+        },
+        addShop(data){
+            let shopData = localStorage.shopData|| '[]' ;
+            var flge = true;
+            shopData = JSON.parse(shopData);
+            for(var i = 0; i < shopData.length; i++){
+                console.log(data[i].id,shopData[0].id)
+                if(shopData[i].id == data[i].id){
+                    shopData[i].num += data[i].num;
+                    flge = false;
+                    break;
+                }
+            }
+            if(flge){
+                shopData.push(...data);
+            }
+            console.log(shopData,...data)
+            localStorage.shopData = JSON.stringify(shopData);
+            // alert('加入成功');
 
         }
     }

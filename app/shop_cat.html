@@ -6,14 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>购物车</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/reset.css">
+    <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script> 
     <link rel="stylesheet" href="css/public.css">
     <link rel="stylesheet" href="iconfont/iconfont.css">
-    <link rel="stylesheet" href="css/shop_cat.css">    
+    <link rel="stylesheet" href="css/shop_cat.css">   
 </head>
 
 <body>
     <div class="top-header"></div>
+    <div  class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                   <div class="modal-dialog modal-sm" role="document">
+                       <div class="modal-content">
+                           <div class="modal-header">
+                               <span>警告</span>
+                           </div>
+                           <div class="modal-body">
+                               你确定要删除么?
+                           </div>
+                           <div class="modal-footer">
+                               <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                               <button type="button" class="btn btn-danger btn-del" data-dismiss="modal">确认</button>
+                           </div>
+                       </div>
+                   </div>
+    </div>
     <div class="hungBar-box">
         <div class="hungBar">
             <a href="./shop_cat.html" class="_hungB1 iconfont icongouwuche">
@@ -353,97 +372,82 @@
 
 
 
-        <!-- <div class="sc-total-tool">
-            <label class="checkbox">
-                <input  readonly="readonly" class="quan input">全选
-            </label>
-            <b class="btn_del">删除</b>
-            <button>立即结算</button>
-            <div class="sc-total-price">
-                <p>
-                    <b>总计:</b>
-                    <span>¥&nbsp;3999</span>
-                </p>
-                <div class="total">
-                    已选择 <i> 0 </i> 件商品
+    </div>
+    <div class="shop-list-box">
+    <h2>推荐搭配</h2>
+    <div class="shop-box">
+        <div class="swiper">
+            <div class="swiper-list">
+                <div class="swiper-box">
+                    <img src="./images/5.png" alt="">
+                    <p>HUAWEI M-Pen （HUAWEI Mate 20 X专用）</p>
+                    <p>¥&nbsp;299</p>
+                    <p>
+                        <a href="#" class="addshop">加入购物车</a>
+                    </p>
                 </div>
-            </div>
-        </div>
-        <h2>推荐搭配</h2>
-        <div class="shop-box">
-            <div class="swiper">
-                <div class="swiper-list">
-                    <div class="swiper-box">
-                        <img src="./images/5.png" alt="">
+                <div class="swiper-box">
+                    <img src="./images/6.png" alt="">
+                    <p>HUAWEI M-Pen （HUAWEI Mate 20 X专用）</p>
+                    <p>¥&nbsp;299</p>
+                    <p>
+                        <a href="#" class="addshop">加入购物车</a>
+                    </p>
+                </div>
+                <div class="swiper-box">
+                    <img src="./images/4.png" alt="">
+                    <p>HUAWEI M-Pen （HUAWEI Mate 20 X专用）</p>
+                    <p>¥&nbsp;299</p>
+                    <p>
+                        <a href="#" class="addshop">加入购物车</a>
+                    </p>
+                </div>
+                <div class="swiper-box">
+                    <img src="./images/2.png" alt="">
+                    <p>HUAWEI M-Pen （HUAWEI Mate 20 X专用）</p>
+                    <p>¥&nbsp;299</p>
+                    <p>
+                        <a href="#" class="addshop">加入购物车</a>
+                    </p>
+                </div>
+                <div class="swiper-box">
+                        <img src="./images/8.png" alt="">
                         <p>HUAWEI M-Pen （HUAWEI Mate 20 X专用）</p>
                         <p>¥&nbsp;299</p>
                         <p>
-                            <a href="#">加入购物车</a>
+                            <a href="#" class="addshop">加入购物车</a>
                         </p>
                     </div>
                     <div class="swiper-box">
-                        <img src="./images/6.png" alt="">
-                        <p>HUAWEI M-Pen （HUAWEI Mate 20 X专用）</p>
-                        <p>¥&nbsp;299</p>
-                        <p>
-                            <a href="#">加入购物车</a>
-                        </p>
-                    </div>
-                    <div class="swiper-box">
-                        <img src="./images/4.png" alt="">
-                        <p>HUAWEI M-Pen （HUAWEI Mate 20 X专用）</p>
-                        <p>¥&nbsp;299</p>
-                        <p>
-                            <a href="#">加入购物车</a>
-                        </p>
-                    </div>
-                    <div class="swiper-box">
-                        <img src="./images/2.png" alt="">
-                        <p>HUAWEI M-Pen （HUAWEI Mate 20 X专用）</p>
-                        <p>¥&nbsp;299</p>
-                        <p>
-                            <a href="#">加入购物车</a>
-                        </p>
-                    </div>
-                    <div class="swiper-box">
-                            <img src="./images/8.png" alt="">
+                            <img src="./images/2.png" alt="">
                             <p>HUAWEI M-Pen （HUAWEI Mate 20 X专用）</p>
                             <p>¥&nbsp;299</p>
                             <p>
-                                <a href="#">加入购物车</a>
+                                <a href="#" class="addshop">加入购物车</a>
                             </p>
                         </div>
                         <div class="swiper-box">
-                                <img src="./images/2.png" alt="">
-                                <p>HUAWEI M-Pen （HUAWEI Mate 20 X专用）</p>
-                                <p>¥&nbsp;299</p>
-                                <p>
-                                    <a href="#">加入购物车</a>
-                                </p>
-                            </div>
-                            <div class="swiper-box">
-                                <img src="./images/2.png" alt="">
-                                <p>HUAWEI M-Pen （HUAWEI Mate 20 X专用）</p>
-                                <p>¥&nbsp;299</p>
-                                <p>
-                                    <a href="#">加入购物车</a>
-                                </p>
-                            </div>
-                            <div class="swiper-box">
-                                <img src="./images/2.png" alt="">
-                                <p>HUAWEI M-Pen （HUAWEI Mate 20 X专用）</p>
-                                <p>¥&nbsp;299</p>
-                                <p>
-                                    <a href="#">加入购物车</a>
-                                </p>
-                            </div>
+                            <img src="./images/2.png" alt="">
+                            <p>HUAWEI M-Pen （HUAWEI Mate 20 X专用）</p>
+                            <p>¥&nbsp;299</p>
+                            <p>
+                                <a href="#" class="addshop">加入购物车</a>
+                            </p>
+                        </div>
+                        <div class="swiper-box">
+                            <img src="./images/2.png" alt="">
+                            <p>HUAWEI M-Pen （HUAWEI Mate 20 X专用）</p>
+                            <p>¥&nbsp;299</p>
+                            <p>
+                                <a href="#" class="addshop">加入购物车</a>
+                            </p>
+                        </div>
 
-                </div>
-                <span class="left"></span>
-                <span class="right"></span>
             </div>
-        </div> -->
-    </div>
+            <span class="left"></span>
+            <span class="right"></span>
+        </div>
+    </div></div>
     <div class="foot-box"></div>
     <script data-main="js/main.js" src="https://cdn.staticfile.org/require.js/2.3.6/require.js"></script>   
 </body>
