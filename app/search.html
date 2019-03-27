@@ -1,12 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>搜索</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+    <link rel="stylesheet" href="css/fy.css">
+    <link rel="stylesheet" href="css/search.css">
+    <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.js"></script>
+    <script data-main="js/main.js" src="https://cdn.staticfile.org/require.js/2.3.6/require.js"></script>
 </head>
+
 <body>
-    
+    <div class="top-header"></div>
+    <div class="hungBar-box">
+        <div class="hungBar">
+            <a href="./shop_cat.html" class="_hungB1 iconfont icongouwuche">
+                <span>0</span>
+                <i>购物车</i>
+            </a>
+            <a href="javascript:" class="_hungB2 iconfont iconerji">
+                <span></span>
+                <i>在线客服</i>
+            </a>
+            <a href="javascript:" class="_hungB3 iconfont iconweixin">
+                <span></span>
+                <i>意见反馈</i>
+            </a>
+            <a href="#" class="_hungB4 iconfont icondown-copy" id="back_top">
+                <span></span>
+                <i>返回顶部</i>
+            </a>
+        </div>
+    </div>
+    <div id="head">
+        <div class="head-box">
+            <h1>
+                <img src="./images/logo.png" alt="">
+            </h1>
+            <ul class="nav">
+                <li><a href="#">手机</a></li>
+                <li><a href="#">笔记本&电脑</a></li>
+                <li><a href="#">智能穿戴</a></li>
+                <li><a href="#">智能家居</a></li>
+                <li><a href="#">热销配件</a></li>
+                <li><a href="#">增值服务&配件</a></li>
+            </ul>
+            <div class="search-box">
+                <input type="text" class="txt">
+                <div class="recommend">
+                    <a href="#">nova 4e</a>
+                    <a href="#">荣耀V20</a>
+                </div>
+                <i class="btn iconfont iconsearch-1-copy"></i>
+            </div>
+        </div>
+    </div>
+    <div class="sub-box">
+    <div class="nav-sub">
+        <div class="sub-box">
+            <div class="sub1">
+                <div class="sub-head">
+                    <h2>全部手机</h2>
+                    <i></i>
+                    <ul>
+                        <li><a href="#">荣耀</a></li>
+                        <li><a href="#">HUAWEI Mate系列</a></li>
+                        <li><a href="#">荣耀畅玩系列</a></li>
+                        <li><a href="#">HUAWEI Mate系列</a></li>
+                        <li><a href="#">华为畅享系列</a></li>
+                        <li><a href="#">HUAWEI Mate系列</a></li>
+                        <li><a href="#">4G+专区</a></li>
+                    </ul>
+                </div>
+                <ul class="sub-con">
+                    <li>
+                        <p class="con-img">
+                            <img src="./images/tel.png" alt="">
+                        </p>
+                        <p class="con-name">HUAWEI Mate 20</p>
+                        <p class="con-money">¥3499</p>
+                    </li>
+                    <li>
+                        <p class="con-img">
+                            <img src="./images/tel.png" alt="">
+                        </p>
+                        <p class="con-name">HUAWEI Mate 20</p>
+                        <p class="con-money">¥3499</p>
+                    </li>
+                    <li>
+                        <p class="con-img">
+                            <img src="./images/tel.png" alt="">
+                        </p>
+                        <p class="con-name">HUAWEI Mate 20</p>
+                        <p class="con-money">¥3499</p>
+                    </li>
+                    <li>
+                        <p class="con-img">
+                            <img src="./images/tel.png" alt="">
+                        </p>
+                        <p class="con-name">HUAWEI Mate 20</p>
+                        <p class="con-money">¥3499</p>
+                    </li>
+                    <li>
+                        <p class="con-img">
+                            <img src="./images/tel.png" alt="">
+                        </p>
+                        <p class="con-name">HUAWEI Mate 20</p>
+                        <p class="con-money">¥3499</p>
+                    </li>
+                    <li>
+                        <p class="con-img">
+                            <img src="./images/tel.png" alt="">
+                        </p>
+                        <p class="con-name">HUAWEI Mate 20</p>
+                        <p class="con-money">¥3499</p>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+    </div></div>
+    <div class="conner">
+        <h2>搜索 <span class="swp">[荣耀V20]</span> 共找到商品138件</h2>
+        <div class="pro-cate-sort">
+            <p class="p-title">排序:</p>
+            <ul id="sort-type">
+                <li class="act">综合</li>
+                <li>最新</li>
+                <li>热度</li>
+                <li>价格</li>
+            </ul>
+        </div>
+        <div class="shop-list">
+            <!-- <ul class="pro-list">
+                <li>
+                    <p class="p-img"><img src="./images/tel.png" alt=""></p>
+                    <p class="p-name">荣耀9i 全网通 4GB+64GB（幻夜黑）</p>
+                    <b class="p-tag"><img src="./images/bk-tag.png" alt=""></b>
+                    <p class="p-money"><b>¥1199</b><span>多配置可选</span></p>
+                </li>
+            </ul> -->
+            <div id="pager" class="pager clearfix"></div>
+        </div>
+    </div>
+    <div class="foot-box"></div>
+
 </body>
+
 </html>

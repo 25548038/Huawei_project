@@ -76,6 +76,7 @@ width: 998px;
 .login-left{
     border-right: 1px solid #cccccc; 
     cursor: pointer;
+    color: red;
 }
 .login-right{
     border-left: 1px solid #cccccc;
