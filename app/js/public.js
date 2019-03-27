@@ -43,6 +43,11 @@ define(['jquery', 'loading'], (function($, public) {
             }
         }
     }
+<<<<<<< HEAD
 
 }));
 
+=======
+}
+    
+>>>>>>> 14e6aa6b9ba1f4dcaa6b0b8d6f378848643406ee
