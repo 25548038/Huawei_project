@@ -51,7 +51,6 @@ var Detailspage=(function(){
             $('.product-button01').on('click',function(){       
                 const tit=$('#bread-pro-name').text();//文本值
                 const imgj=$('#adress_img').attr("src");//图片地址
-                console.log(imgj)
                 let id1;
                 if(imgj=="images/01_small.png"){
                      id1=1;
@@ -70,7 +69,7 @@ var Detailspage=(function(){
                 };
                 shopList.push(shop_li);
                 localStorage.shopData = JSON.stringify(shopList);
-                console.log(shopList)
+                alert("添加成功")
             })
         },
     }

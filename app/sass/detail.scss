@@ -426,6 +426,51 @@
     .dump-con{
         @include banxin;
         height:100px;
-        background:blue;
+            ul{
+                margin:0 auto;
+                width:800px;
+                height:100px;
+                line-height:60px;
+                li{
+                    margin-left:200px;
+                    float:left;
+                    margin-top:20px;
+                    a{
+                        font-size:18px;
+                        color:#Ca141D;
+                    }
+                }
+            }
+    }
+}//详情
+#Commodity{
+    height:540px;
+    div{
+        height: 540px;
+        @include banxin;
+        img{
+            width:1200px;
+        }
+    }
+}//商品详情
+#Specification{
+    height:540px;
+    div{
+        height: 540px;
+        @include banxin; 
+        h2{
+            height:40px;
+            width:1190px;
+            font-size:20px;
+            padding-top:20px;
+            padding-left:10px;
+            border-bottom:1px solid #f0f0f0;
+        }
+        ._parameter{
+            width:1200px;
+            height:460px;
+            background:url(../images/parameter.PNG) no-repeat;
+            background-size:contain;
+        }
     }
 }
