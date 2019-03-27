@@ -16,7 +16,7 @@
     if($result) {
         echo "<script>
                 alert('恭喜您注册成功');
-                location.href = '../login.html';
+                location.href = '../index.html';
               </script>";
     } else {
         echo "<script>

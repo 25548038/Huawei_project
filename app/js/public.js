@@ -13,7 +13,7 @@ define(['jquery', 'loading'], (function($, public) {
             $btn_l = $('._btn-l');
             $btn_r = $('._btn-r');
             $back_top = $('#back_top');
-            width_1 = $friend_2.clientWidth;
+            width_1 =158;
             this.event();
         },
         event(){
@@ -43,11 +43,4 @@ define(['jquery', 'loading'], (function($, public) {
             }
         }
     }
-<<<<<<< HEAD
-
 }));
-
-=======
-}
-    
->>>>>>> 14e6aa6b9ba1f4dcaa6b0b8d6f378848643406ee
