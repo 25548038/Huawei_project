@@ -1,5 +1,5 @@
 define(['jquery'], function ($, public) {
-    let $btn_left, $btn_right, $swi_box, $del, $inpt, $hua,$box,showData,$shopNum,$shop_list,$inptlist,$manoy,$Subtotal,$Selection,num = 0,$modal,Total,$addshop;
+    let $btn_left, $btn_right, $swi_box, $del, $inpt, $hua,$box,showData,$shopNum,$shop_list,$inptlist,$manoy,$Subtotal,$Selection,num = 0,$modal,Total=0,$addshop,$shul;
     return {
         init() {
             $box = $('#content');
@@ -17,8 +17,10 @@ define(['jquery'], function ($, public) {
             $Subtotal = $('.maney');
             $modal = $('.modal-footer');
             $addshop = $('.addshop');
-            console.log($addshop)
+            $shul = $('.shul')
             this.event(showData);
+            this.shul(showData)
+            console.log($shul)
         },
         event(showData) {
             let _this = this;
@@ -61,19 +63,18 @@ define(['jquery'], function ($, public) {
                     flag = false;
                 }
                })
-               if(flag) {
-                   $inpt.addClass('checked');
-                   console.log($hua.length)
-                   
-            }
+               if(flag) $inpt.addClass('checked');
             })
             //全选
             $inpt.on('click',(function(){
                 let flag;       
                 return function () {
-                    Total = $($Subtotal).html().replace(/[^0-9]/ig,'') -0;
+                    num=0;
+                    Total = 0;
                     $hua.each(function(x){
-                        flag = $($hua[x]).hasClass('checked');
+                        // console.log(Total)
+                        Total += $($($Subtotal)[x]).html().replace(/[^0-9]/ig,'')-0;
+                        flag = $($inpt[x]).hasClass('checked');
                         num += showData[x].num;
                         return;
                     })
@@ -101,9 +102,13 @@ define(['jquery'], function ($, public) {
                  showData.splice(index, 1);
                  _this.insertData(showData);
                  // 更新本地数据
-                 _this.addShop(showData);
-                 console.log( $('.modal'))
-                console.log(index)
+                 _this.addShop();
+                 console.log(showData.length)
+                 if(index == showData.length){ 
+
+                    console.log(1234564156)
+                 }
+                 console.log(index)
             })
             //加商品
             $shopNum.on('click','.plus',function(){
@@ -114,8 +119,9 @@ define(['jquery'], function ($, public) {
                 val++;
                 $($manoy[index]).val(val);
                 $($Subtotal[index]).html('¥&nbsp;'+maney*val);
-                
+                _this.shul(showData)
                showData[index].num = val ;
+            //    _this.insertData(showData)
                 _this.addShop();
                 if(val > 0){
                     $('.reduce').removeClass('cat')
@@ -159,6 +165,7 @@ define(['jquery'], function ($, public) {
                         flag = false;
                         return false;
                     }
+                    _this.shul(showData)
                 console.log(index)
             })
             //文本框
@@ -167,20 +174,16 @@ define(['jquery'], function ($, public) {
                 val = $($('.number')[index]).val(),
                 maney = showData[index].maney,
                 arr = [];
-                $('.maney').html('¥&nbsp;'+maney*val);
+                $($('.maney')[index]).html('¥&nbsp;'+maney*val);
+                _this.addShop(showData[index]);
+                showData[index].num = val - 0;
                 flag = $($hua[index]).hasClass('checked');
                     if(flag){
                         num = val - 0;  
                         $('.total').children('i').html(num);
+                        console.log(showData[index].num)        
                     }
-                        for(let i = 0; i< arr.length;i++){
-                            if(arr[i]===arr[i+1] && arr[i] === true){
-                                console.log(val)
-                            }
-                        }        
-                
-                showData[index].num = val - 0;
-                _this.addShop(showData[index]);
+                    this.shul(showData)
             })
             $addshop.on('click',function(){
                 alert(1)
@@ -223,7 +226,7 @@ define(['jquery'], function ($, public) {
                         </li>
                         <li>
                             <div class="p-stock-area">
-                                <input type="number" class="number" value="${data[attr].num}">
+                                <input type="number" class="number" value="${data[attr].num}" readonly="readonly">
                                 <b class="plus">+</b>
                                 <b class="reduce">-</b>
                             </div>
@@ -343,9 +346,7 @@ define(['jquery'], function ($, public) {
             </div>`;
             $box.append(html)
 
-            }
-            
-        ,
+        },
         addShop(){
           
             localStorage.shopData = JSON.stringify(showData);
@@ -365,25 +366,32 @@ define(['jquery'], function ($, public) {
                 }
             })
         },
-        addShop(data){
-            let shopData = localStorage.shopData|| '[]' ;
-            var flge = true;
-            shopData = JSON.parse(shopData);
-            for(var i = 0; i < shopData.length; i++){
-                console.log(data[i].id,shopData[0].id)
-                if(shopData[i].id == data[i].id){
-                    shopData[i].num += data[i].num;
-                    flge = false;
-                    break;
-                }
-            }
-            if(flge){
-                shopData.push(...data);
-            }
-            console.log(shopData,...data)
-            localStorage.shopData = JSON.stringify(shopData);
-            // alert('加入成功');
+        // addShop(data){
+        //     let shopData = localStorage.shopData|| '[]' ;
+        //     var flge = true;
+        //     shopData = JSON.parse(shopData);
+        //     for(var i = 0; i < shopData.length; i++){
+        //         console.log(data[i].id,shopData[0].id)
+        //         if(shopData[i].id == data[i].id){
+        //             shopData[i].num += data[i].num;
+        //             flge = false;
+        //             break;
+        //         }
+        //     }
+        //     if(flge){
+        //         shopData.push(...data);
+        //     }
+        //     console.log(shopData,...data)
+        //     localStorage.shopData = JSON.stringify(shopData);
+        //     // alert('加入成功');
 
+        // }
+        shul(data){
+            let shuli  = 0;
+            for(let i =0;i<data.length;i++){
+              shuli += data[i].num;
+              $shul.html(shuli)
+            }
         }
     }
 });

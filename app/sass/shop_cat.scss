@@ -258,7 +258,7 @@ $bg-color:#ca141d;
                     width: 63px;
                     height: 44px;
                     margin-left: 35px;
-
+                   
                     input {
                         float: left;
                         width: 41px;
@@ -272,6 +272,9 @@ $bg-color:#ca141d;
 
                         &::-webkit-inner-spin-button {
                             -webkit-appearance: none;
+                        }
+                        &::selection{
+                            background:transparent;
                         }
                     }
 
