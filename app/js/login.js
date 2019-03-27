@@ -6,3 +6,5 @@ $('.login-right').on("click",function(){
     $('.login-form').hide();
     $('.login-hiden').show();
 })
+
+

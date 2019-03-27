@@ -58,7 +58,7 @@ width: 998px;
     width: 380px;
 }
 .header{
-    padding: 24px 0;
+    padding: 24px 4px;
     text-align: center;
     display: block;
     width: 380px;
@@ -89,7 +89,7 @@ width: 998px;
     width: 328px;
     margin: 0 auto;
 }
-#username,#password{
+#phone,#password{
     width: 328px;
     height: 48px;
     border-bottom: 1px solid black;
