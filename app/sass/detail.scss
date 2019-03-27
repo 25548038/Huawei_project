@@ -124,13 +124,70 @@
             }
         }//上面的盒子
         .sel-bot{
+            position: relative;
             height:660px;
             width:1200px;
-            .sel-lef{
+            .box{
                 width:450px;
                 height: 540px;
-                background:yellow;
                 float:left;
+                .show-image{
+                    position: relative;
+                    width:450px;
+                    height:450px;
+                    overflow: hidden;
+                    font-size: 0;
+                    img{
+                        max-width: 100%;
+                        max-height: 100%;
+ 
+                    }
+                    // .filter{
+                    //     position: absolute;
+                    //     left: 0px;
+                    //     top:0;
+                    //     width: 150px;
+                    //     height: 150px;
+                    //     background: rgba(240, 238, 238, 0.6);
+                    //     cursor: move;
+                    //     display: none;
+                  
+                    // }
+                }
+                
+                .show-big-image {
+                    position: absolute;
+                    left: 450px;
+                    top: 0px;
+                    width: 450px;
+                    height: 450px;
+                    overflow: hidden;
+                    border: 1px solid #eee;
+                    display: none;
+                    img{
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 1080px;
+                    }
+                }
+                .img-box{
+                    height:90px;
+                    width:450px;
+                    li{
+                        display: inline-block;
+                        margin-left: 10px;
+                        img{
+                            max-width: 100%;
+                            max-height: 100%;
+                        }
+                    }
+                }
+                .img-box>li:hover,
+                .img-box>li.active {
+                border: 1px solid #000;
+                    }
+
             }//左边放大镜盒子
             .sel-rig{
                 width:750px;
@@ -241,8 +298,8 @@
                                     float:left;
                                     height:30px;
                                     width:160px; 
-                                    background:gray;
-                                    margin-top:8px;
+                                    font-size:12px;
+                                    margin-top:15px;
                                 }
                                 .title-lo{
                                     float:left;
