@@ -12,3 +12,8 @@ $('.login-right').on("click",function(){
 })
 
 
+
+// $('#phone').change(function() {
+//     $.post("server/login1.php");
+// })
+
