@@ -58,7 +58,7 @@ define([
                             if(!arr[i].tag == ''){
                                 cells += '<b class="p-tag"><img src="./images/' + arr[i].tag + '" alt=""></b>';
                             }
-                            cells += '<p class="p-money"><b>' + arr[i].maney + '</b><span>多配置可选</span></p>';
+                            cells += '<p class="p-money"><b>¥'  + arr[i].maney + '</b><span>多配置可选</span></p>';
                             cells += '</li>';
                         }
                     if(opts.htmlBox===''||(typeof(opts.htmlBox)!=='Obeject')){

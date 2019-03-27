@@ -15,7 +15,6 @@ define(['jquery', 'loading'], (function($, public) {
             $back_top = $('#back_top');
             width_1 = $friend_2.clientWidth;
             this.event();
-            console.log($friend_2)
         },
         event(){
 
