@@ -222,14 +222,13 @@
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
     <script src="js/detail.js"></script>
     <script>
-        $('.shortcut1').load('public.html .shortcut',function(){
-            $.getScript("js/public.js")
-        })
+        $('.shortcut1').load('public.html .shortcut')
         $('.hungBar1').load('public.html .hungBar',function(){
-            $.getScript("js/public.js")
+            $publicMain.scro();
+            $publicMain.header();
         })
         $('.footer').load('public.html ._maxfoot',function(){
-            $.getScript("js/public.js")
+            $publicMain.footer();
         })
         glass.init(2)
         Detailspage.init();
