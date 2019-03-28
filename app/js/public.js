@@ -4,7 +4,7 @@ window.onload=function(){
     let $btn_l=document.querySelector('._btn-l');
     let $btn_r=document.querySelector('._btn-r');
     let $back_top=document.querySelector('#back_top');
-    const width_1=$friend_2.clientWidth;
+    const width_1=158;
     let num_1=0;    
     $btn_l.onclick=function(){
         if(num_1<0){

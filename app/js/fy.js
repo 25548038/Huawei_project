@@ -52,14 +52,14 @@ define([
                     arr = _data.slice(min,max);
                     var cells = '';
                         for(var i=0;i<arr.length;i++){
-                            cells += '<li>';
+                            cells += '<li><a href= "./detail.html">';
                             cells += '<p class="p-img"><img src="./images/' + arr[i].img + '" alt=""></p>';
                             cells += '<p class="p-name">' + arr[i].title +'</p>';
                             if(!arr[i].tag == ''){
                                 cells += '<b class="p-tag"><img src="./images/' + arr[i].tag + '" alt=""></b>';
                             }
                             cells += '<p class="p-money"><b>¥'  + arr[i].maney + '</b><span>多配置可选</span></p>';
-                            cells += '</li>';
+                            cells += '</a></li>';
                         }
                     if(opts.htmlBox===''||(typeof(opts.htmlBox)!=='Obeject')){
                         var abx = _v.prev();
