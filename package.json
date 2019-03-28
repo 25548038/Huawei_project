@@ -1,7 +1,6 @@
 {
   "name": "huawei",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -25,5 +24,14 @@
     "gulp-uglify": "^3.0.2",
     "node-sass": "^4.11.0"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/25548038/Huawei_project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/25548038/Huawei_project/issues"
+  },
+  "homepage": "https://github.com/25548038/Huawei_project#readme",
+  "description": ""
 }
