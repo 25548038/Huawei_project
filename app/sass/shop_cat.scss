@@ -294,9 +294,7 @@ $bg-color:#ca141d;
                             background:transparent;
                         }
                     }
-                    .cat{
-                        pointer-events:none;
-                    }
+                    
                 }
             }
 
@@ -598,3 +596,9 @@ $bg-color:#ca141d;
             }
         }
     }
+    .cat{
+        pointer-events:none !important;
+    }
+.input{
+    cursor: pointer;
+}

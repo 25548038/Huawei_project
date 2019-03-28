@@ -63,7 +63,7 @@ var Detailspage=(function(){
                 let shop_li={
                     title:tit,
                     img:imgj,
-                    maney:Number(_me),
+                    money:Number(_me),
                     num:Number(nu),
                     id:Number(id1)
                 };

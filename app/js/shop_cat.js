@@ -1,5 +1,6 @@
 define(['jquery'], function ($, public) {
-    let $btn_left, $btn_right, $swi_box, $del, $inpt, $hua,$box,showData,$shopNum,$shop_list,$inptlist,$manoy,$Subtotal,$Selection,num = 0,$modal,Total=0,$addshop,$shul;
+    let $btn_left, $btn_right, $swi_box, $hua, $box, showData,
+        $modal,$shul;
     return {
         init() {
             $box = $('#content');
@@ -7,19 +8,13 @@ define(['jquery'], function ($, public) {
             $btn_left = $('.left');
             $btn_right = $('.right');
             $swi_box = $('.swiper-list');
-            $del = $('.btn_del');
-            $inpt = $('.quan');
-            $inptlist = $('.input')
-            $hua = $('.hua');
-            $shopNum = $('.p-stock-area');
-            $shop_list = $('.sc-pro-list');
-            $manoy = $('.number');
-            $Subtotal = $('.maney');
+            $hua = document.querySelectorAll('.hua');
             $modal = $('.modal-footer');
             $addshop = $('.addshop');
             $shul = $('.shul')
             this.event(showData);
             this.shul(showData)
+            this.countMoney();
         },
         event(showData) {
             let _this = this;
@@ -32,188 +27,140 @@ define(['jquery'], function ($, public) {
                 $swi_box.css('left', 35)
             })
             //选中
-            for (let i = 0; i < $hua.length; i++) {
-                $hua[i].onclick = (function () {
-                    let flag;
-                    return function () {
-                        jiage = $($Subtotal[i]).html().replace(/[^0-9]/ig,'') -0;
-                        console.log(Total)
-                        flag = $($hua[i]).hasClass('checked');
-                        if (!flag) {
-                            Total +=jiage
-                            $(this).addClass('checked'); 
-                            num += showData[i].num ;
-                            $('.Total').html('¥&nbsp;'+Total);  
-                        } else {
-                            // debugger
-                            $(this).removeClass('checked');
-                            Total -= jiage;
-                            num -=showData[i].num
-                            $('.Total').html('¥&nbsp;'+Total);
-                        }
-                        $('.total').children('i').html(num)
-                    }
-                }())
-            }
-            //判断是否全选全选
-            $hua.click(function () {
-                var flag = true;
-               $hua.each(function(x){
-                if(!$($hua[x]).hasClass('checked')) {
-                    $inpt.removeClass('checked')
-                    flag = false;
+            $box.on('click', '.hua', function () {
+                $(this).toggleClass('checked');
+                var index = $(this).index('.hua');
+                if ($(this).hasClass('checked')) {
+                    showData[index].checked = true;
+                } else {
+                    showData[index].checked = false;
                 }
-               })
-               if(flag) $inpt.addClass('checked');
+                _this.addShop();
+                _this.countMoney();
+                // 判断是否为全选
+                let flag = true;
+                $('.hua').each(function (x) {
+                    if (!showData[x].checked) {
+                        flag = false;
+                        $('.quan').removeClass('checked');
+                        return false;
+                    }
+                })
+                if (flag) $('.input').addClass('checked');
             })
             //全选
-            $inpt.on('click',(function(){
-                let flag;       
-                return function () {
-                    num=0;
-                    Total = 0;
-                    $hua.each(function(x){
-                        // console.log(Total)
-                        Total += $($($Subtotal)[x]).html().replace(/[^0-9]/ig,'')-0;
-                        flag = $($inpt[x]).hasClass('checked');
-                        num += showData[x].num;
-                        return;
-                    })
-                    if (!flag) {
-                        $inptlist.addClass('checked');
-                        $('.total').children('i').html(num)
-                        $('.Total').html('¥&nbsp;'+Total);
+            $box.on('click', '.quan', function () {
+                $(this).toggleClass('checked');
+
+                for (let i = 0; i < showData.length; i++) {
+                    if ($(this).hasClass('checked')) {
+                        $('.input').addClass('checked');
+                        showData[i].checked = true;
                     } else {
-                        num = 0;
-                        Total = 0;
-                        $inptlist.removeClass('checked');
-                        $('.total').children('i').html(num)
-                        $('.Total').html('¥&nbsp;'+Total);
+                        $('.input').removeClass('checked');
+                        showData[i].checked = false;
                     }
                 }
-            })())
-            //删除选中
-            $box.on('click','.del',function(){
-                let index = $(this).index('.del');
-               $modal.children('.btn-del').attr('attr-id',index)
+                _this.countMoney();
+                _this.addShop();
             })
-            $modal.on('click', '.btn-del', function(){
+            //删除选中
+            $box.on('click', '.del', function () {
+                let index = $(this).index('.del');
+                $modal.children('.btn-del').attr('attr-id', index)
+            })
+            $modal.on('click', '.btn-del', function () {
                 var self = $(this),
-                 index = self.attr('attr-id');
-                 showData.splice(index, 1);
-                 _this.insertData(showData);
-                 // 更新本地数据
-                 _this.addShop();
-                 console.log(showData.length)
-                 if(index == showData.length){ 
+                    index = self.attr('attr-id');
+                showData.splice(index, 1);
+                _this.insertData(showData);
+                // 更新本地数据
+                _this.addShop();
+                console.log(showData.length)
+                if (index == showData.length) {
                     showData.splice(0, index);
                     _this.addShop();
                     _this.insertData(showData);
                     console.log(1234564156)
-                 }
-                 console.log(index)
+                }
+                console.log(index)
             })
             //加商品
-            $shopNum.on('click','.plus',function(){
-                let index = $(this).index('.plus'),
-                val = showData[index].num,
-                maney = showData[index].maney;
-                Total +=maney;
-                val++;
-                $($manoy[index]).val(val);
-                $($Subtotal[index]).html('¥&nbsp;'+maney*val);
-                _this.shul(showData)
-               showData[index].num = val ;
-            //    _this.insertData(showData)
+            $box.on('click', '.plus', function () {
+                var index = $(this).index('.plus');
+                showData[index].num++;
                 _this.addShop();
-                if(val > 0){
-                    $('.reduce').removeClass('cat')
-                }
-                    flag = $($hua[index]).hasClass('checked');
-                    if(flag){
-                        console.log(val,Total)
-                        num ++;
-                        $('.Total').html('¥&nbsp;'+Total); 
-                        $('.total').children('i').html(num);
-                        flag = false;
-                        return false;
-                    }
-            //    _this.insertData(showData)
-                console.log(maney)
+                _this.insertData(showData);
+                _this.countMoney();
 
             })
             //减商品
-            $shopNum.on('click','.reduce',function(){
-                let index = $(this).index('.reduce'),
-                val = showData[index].num,
-                maney = showData[index].maney;
-                Total -=maney;
-                val--;
-                // console.log($($manoy[index]))
-                $($manoy[index]).val(val);
-                $($Subtotal[index]).html('¥&nbsp;'+maney*val);
-                showData[index].num = val;
+            $box.on('click', '.reduce', function () {
+                var index = $(this).index('.reduce');
+                showData[index].num--;
+                _this.insertData(showData);
                 _this.addShop();
-                if(val<=0){
-                    $(this).addClass('cat')
-                }else{
-                    $(this).removeClass('cat')
-                }
-                flag = $($hua[index]).hasClass('checked');
-                    if(flag){
-                        console.log(val)
-                        num --;
-                        $('.total').children('i').html(num);
-                        $('.Total').html('¥&nbsp;'+Total);
-                        flag = false;
-                        return false;
-                    }
-                    _this.shul(showData)
-                console.log(index)
+                _this.countMoney();
+
             })
             //文本框
-            $('.number').on('change',function(){
+            $box.on('change', '.number', function () {
                 let index = $(this).index('.number'),
-                val = $($('.number')[index]).val(),
-                maney = showData[index].maney,
-                arr = [];
-                $($('.maney')[index]).html('¥&nbsp;'+maney*val);
-                _this.addShop(showData[index]);
+                    val = $($('.number')[index]).val();
                 showData[index].num = val - 0;
-                flag = $($hua[index]).hasClass('checked');
-                    if(flag){
-                        num = val - 0;  
-                        $('.total').children('i').html(num);
-                        console.log(showData[index].num)        
-                    }
-                    this.shul(showData)
+                _this.countMoney();
+                _this.insertData(showData);
+                _this.shul(showData);
+                _this.addShop();
             })
-            $addshop.on('click',function(){
-                _this.shopData();
+            //加入购物车
+            $box.on('click', '.addshop', function () {
+                let index = $(this).index()
+
+                console.log(index)
+                // _this.shopData();
                 // _this.insertData();
+                // _this.addShopCat(data)
             })
         },
         //获取数据
         getCarData() {
             var data = localStorage.shopData;
-            if(localStorage.length == 0){
+            if (localStorage.length == 0) {
                 this.empty();
-            }else{
+            } else {
                 this.insertData(JSON.parse(data));
             }
         },
         //渲染数据
-        insertData(data){
-            $box.html('');
+        insertData(data) {
+            let str = '',
+            str2 = '',
+                bool = $box.children('.table-header').length == 0,
+                flag = true;
+            if (bool) {
+                this.shopTop()
+            }
+            $box.children('.sc-pro-list').remove();
             showData = data;
-            if(data == ''){
+            if (data == '') {
                 this.empty();
-            }else{
-            for(var attr in data){
-                var innerHTML = `
+            } else {
+                for (var attr in data) {
+                    if (data[attr].checked) {
+                        str = 'checked';
+                    } else {
+                        str = '';
+                    }
+                    if(data[attr].num <=0){
+                        str2 = 'cat'
+                    }else{
+                        str2 = '';
+                    }
+                    var innerHTML = `
                 <div class="sc-pro-list">
             <label class="checkbox">
-                <input readonly="readonly" class="hua input">
+                <input readonly="readonly" class="hua input ${str}">
             </label>
             <div class="sc-pro-area">
                 <div class="sc-pro-main">
@@ -225,17 +172,17 @@ define(['jquery'], function ($, public) {
                             <a href="#">${data[attr].title}</a>
                         </li>
                         <li>
-                            <span>¥&nbsp;${data[attr].maney}</span>
+                            <span>¥&nbsp;${data[attr].money}</span>
                         </li>
                         <li>
                             <div class="p-stock-area">
-                                <input type="number" class="number" value="${data[attr].num}" readonly="readonly">
+                                <input type="number" class="number" value="${data[attr].num}" /*readonly="readonly"*/>
                                 <b class="plus">+</b>
-                                <b class="reduce">-</b>
+                                <b class="reduce ${str2}">-</b>
                             </div>
                         </li>
                         <li class="maney">
-                            ¥&nbsp;${data[attr].num * data[attr].maney}
+                            ¥&nbsp;${data[attr].num * data[attr].money}
                         </li>
                         <li>
                             <b class="del" data-toggle='modal' data-target='.bs-example-modal-sm'>删除</b>
@@ -304,45 +251,23 @@ define(['jquery'], function ($, public) {
             </div>
         </div>
         `;
-        $box.append(innerHTML)
+                    $('.sc-total-tool').before(innerHTML);
+                }
+                for (let i = 0; i < data.length; i++) {
+                    if (!data[i].checked) {
+                        flag = false;
+                        $('.quan').removeClass('checked');
+                        return false;
+                    }
+                }
+                if (flag) $('.input').addClass('checked');
+
             }
-            if(!$box.hasClass('sc-total-tool')){
-            let txt = `
-            <div class="sc-total-tool">
-            <label class="checkbox">
-                <input  readonly="readonly" class="quan input">全选
-            </label>
-            <b data-toggle='modal' data-target='.bs-example-modal-sm' class="del">删除</b>
-            <button>立即结算</button>
-            <div class="sc-total-price">
-                <p>
-                    <b>总计:</b>
-                    <span class="Total">¥&nbsp;0</span>
-                </p>
-                <div class="total">
-                    已选择 <i> 0 </i> 件商品
-                </div>
-            </div>
-        </div>
-         `,
-        top = `<div class="clearfix">
-        <label class="checkbox">
-            <input readonly="readonly" class="quan input">全选
-        </label>
-        <ul class="list-box">
-            <li>商品</li>
-            <li>单价</li>
-            <li>数量</li>
-            <li>小计</li>
-            <li>操作</li>
-        </ul>
-    </div>`;
-                $box.prepend(top).append(txt);
-            }}
+
         },
-        empty(){
+        empty() {
             $box.html('');
-                let html = `<div class="sc-empty">
+            let html = `<div class="sc-empty">
                 <i></i>
                 <p>您的购物车里什么也没有哦~</p>
                 <a href="index.html" rel="noopener noreferrer">去逛逛</a>
@@ -350,51 +275,101 @@ define(['jquery'], function ($, public) {
             $box.append(html)
 
         },
-        addShop(){
-          
-            localStorage.shopData = JSON.stringify(showData);
-
+        shopTop() {
+            let txt = `
+        <div class="sc-total-tool">
+        <label class="checkbox">
+            <input  readonly="readonly" class="quan input">全选
+        </label>
+        <b data-toggle='modal' data-target='.bs-example-modal-sm' class="del">删除</b>
+        <button>立即结算</button>
+        <div class="sc-total-price">
+            <p>
+                <b>总计:</b>
+                <span class="Total">¥&nbsp;0</span>
+            </p>
+            <div class="total">
+                已选择 <i> 0 </i> 件商品
+            </div>
+        </div>
+    </div>
+     `,
+                top = `<div class="table-header clearfix">
+    <label class="checkbox">
+        <input readonly="readonly" class="quan input">全选
+    </label>
+    <ul class="list-box">
+        <li>商品</li>
+        <li>单价</li>
+        <li>数量</li>
+        <li>小计</li>
+        <li>操作</li>
+    </ul>
+</div>`;
+            $box.prepend(top).append(txt);
         },
-        shopData(){
+        addShop() {
+            localStorage.shopData = JSON.stringify(showData);
+        },
+        shopData() {
             let _this = this
             $.ajax({
-                url:"./json/shopData.json",
-                type:"get",
+                url: "./json/shopData.json",
+                type: "get",
                 async: false,
-                dataType : 'json',
-                success: function(data){
-                    _this.addShopCat(data.data)
-                    console.log(data.data)
+                dataType: 'json',
+                success: function (data) {
+                    _this.addShopCat(data)
+                    _this.Recommend(data)
+                    console.log(data)
                     return data;
                 }
             })
         },
-        addShopCat(data){
+        addShopCat(data) {
             console.log(data)
-            let shopData = localStorage.shopData|| '[]' ;
+            let shopData = localStorage.shopData || '[]';
             var flge = true;
             shopData = JSON.parse(shopData);
-            for(var i = 0; i < shopData.length; i++){
-                console.log(data[0].id)
-                if(shopData[i].id == data[0].id){
+            for (var i = 0; i < shopData.length; i++) {
+                if (shopData[i].id == data[0].id) {
                     shopData[i].num += data[0].num;
                     flge = false;
                     break;
                 }
             }
-            if(flge){
-                shopData.push(...data);
+            if (flge) {
+                shopData.push(data);
             }
             localStorage.shopData = JSON.stringify(shopData);
             // alert('加入成功');
-
         },
-        shul(data){
-            let shuli  = 0;
-            for(let i =0;i<data.length;i++){
-              shuli += data[i].num;
-              $shul.html(shuli)
+        shul(data) {
+            let shuli = 0;
+            for (let i = 0; i < data.length; i++) {
+                shuli += data[i].num;
+                $shul.html(shuli)
             }
+        },
+        countMoney() {
+            // 判断选中的文本框
+            var shopToalCount = 0;
+            var shopTotalMoney = 0;
+            $($hua).each(function (x) {
+                var bool = $(this).hasClass('checked');
+                if (bool) {
+                    // 选中状态
+                    for(let i=0;i<showData.length;i++){
+                        if(showData[i].checked){
+                            shopToalCount += showData[i].num;
+                            shopTotalMoney += showData[i].num * showData[i].money;
+                        }
+                    }
+                }
+            })
+            $('.total').children('i').html(shopToalCount);
+            $('.Total').html('&nbsp¥&nbsp;' + shopTotalMoney);
         }
+
     }
 });
