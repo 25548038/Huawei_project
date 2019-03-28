@@ -15,12 +15,10 @@
     $result = $coon -> query($sql);
     if($result) {
         echo "<script>
-                alert('恭喜您注册成功');
                 location.href = '../index.html';
               </script>";
     } else {
         echo "<script>
-                alert('很遗憾, 注册失败!!!马上跳转到到注册页,请重新注册!!');
                 location.href = '../reg.html';
             </script>";
     }
