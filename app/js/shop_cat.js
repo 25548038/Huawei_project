@@ -1,6 +1,6 @@
 define(['jquery'], function ($, public) {
     let $btn_left, $btn_right, $swi_box, $hua, $box, showData,
-        $modal,$shul;
+        $modal,$shul,$addshop,RecommendData;
     return {
         init() {
             $box = $('#content');
@@ -10,11 +10,12 @@ define(['jquery'], function ($, public) {
             $swi_box = $('.swiper-list');
             $hua = document.querySelectorAll('.hua');
             $modal = $('.modal-footer');
-            $addshop = $('.addshop');
+            $addshop = $('.swiper-list');
             $shul = $('.shul')
             this.event(showData);
             this.shul(showData)
             this.countMoney();
+            this.shopData();
         },
         event(showData) {
             let _this = this;
@@ -114,13 +115,12 @@ define(['jquery'], function ($, public) {
                 _this.addShop();
             })
             //加入购物车
-            $box.on('click', '.addshop', function () {
-                let index = $(this).index()
-
+            $addshop.on('click', '.addshop', function () {
+                let index = $(this).index('.addshop')
+                console.log(RecommendData)
                 console.log(index)
-                // _this.shopData();
                 // _this.insertData();
-                // _this.addShopCat(data)
+                _this.addShopCat(RecommendData[index])
             })
         },
         //获取数据
@@ -319,9 +319,9 @@ define(['jquery'], function ($, public) {
                 async: false,
                 dataType: 'json',
                 success: function (data) {
-                    _this.addShopCat(data)
+                    // _this.addShopCat(data)
+                    RecommendData = data
                     _this.Recommend(data)
-                    console.log(data)
                     return data;
                 }
             })
@@ -332,8 +332,8 @@ define(['jquery'], function ($, public) {
             var flge = true;
             shopData = JSON.parse(shopData);
             for (var i = 0; i < shopData.length; i++) {
-                if (shopData[i].id == data[0].id) {
-                    shopData[i].num += data[0].num;
+                if (shopData[i].id == data.id) {
+                    shopData[i].num += data.num;
                     flge = false;
                     break;
                 }
@@ -354,21 +354,37 @@ define(['jquery'], function ($, public) {
         countMoney() {
             // 判断选中的文本框
             var shopToalCount = 0;
-            var shopTotalMoney = 0;
-            $($hua).each(function (x) {
-                var bool = $(this).hasClass('checked');
-                if (bool) {
-                    // 选中状态
-                    for(let i=0;i<showData.length;i++){
-                        if(showData[i].checked){
-                            shopToalCount += showData[i].num;
-                            shopTotalMoney += showData[i].num * showData[i].money;
+            var shopTotalMoney = 0; 
+                        for(let i=0;i<showData.length;i++){
+                            if(showData[i].checked){
+                                shopToalCount += showData[i].num;
+                                shopTotalMoney += showData[i].num * showData[i].money;
+                            }
                         }
-                    }
-                }
-            })
+                        
+                
             $('.total').children('i').html(shopToalCount);
             $('.Total').html('&nbsp¥&nbsp;' + shopTotalMoney);
+        },
+        Recommend(data){
+           for(let attr in data){
+               let html = `
+               <div class="swiper-box">
+               <a href="./detail.html">
+               <img src="./${data[attr].img}" alt=""></a>
+               <p>${data[attr].title}</p>
+               <p>¥&nbsp;${data[attr].money}</p>
+               <p>
+                   <a href="#" class="addshop" data-toggle='modal' data-target='.bs-example-modal-ts'>加入购物车</a>
+               </p>
+           </div>
+               `;
+               $addshop.append(html)
+           }
+
+          
+
+            
         }
 
     }
