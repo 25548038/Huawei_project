@@ -27,6 +27,12 @@ var user_main=(function(){
                 $('.grid-return').css("display","block");
                 $('.grid-next').css("display","none");
             });
+            $('#_text').focus(function(){
+                $('.recommend').css("display","none");
+            })
+            $('#_text').blur(function(){
+                $('.recommend').css("display","block");
+            })
         }
     }
 }())
