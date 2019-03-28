@@ -1,5 +1,6 @@
 var Detailspage=(function(){
     let shopList=[];
+    
     return{
         init(){
             this.event();
