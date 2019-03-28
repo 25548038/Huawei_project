@@ -67,7 +67,17 @@ var Detailspage=(function(){
                     num:Number(nu),
                     id:Number(id1)
                 };
-                shopList.push(shop_li);
+                var flag = true;
+                for(var i = 0; i < shopList.length; i++){
+                    if(shopList[i].title == shop_li.title) {
+                        shopList[i].num += shop_li.num;
+                        flag = false;
+                        break;
+                    }
+                }
+                if(flag){
+                    shopList.push(shop_li);
+                }
                 localStorage.shopData = JSON.stringify(shopList);
                 alert("添加成功")
             })
