@@ -1,11 +1,24 @@
 window.onload=function(){
     let $friend_l=document.querySelector('#friend-1');
-    let $friend_2=document.querySelector('#friend-2');
     let $btn_l=document.querySelector('._btn-l');
     let $btn_r=document.querySelector('._btn-r');
     let $back_top=document.querySelector('#back_top');
     const width_1=158;
-    let num_1=0;    
+    let num_1=0;   
+    $('._btn-l').on("click",function(){
+        if(num_1<0){
+            num_1+=width_1;
+            $('#friend-1').css("left",num_1+"px") 
+         }  
+    })
+    $('._btn-r').on("click",function(){
+        num_1-=width_1;
+        $('#friend-1').css("left",num_1+"px") 
+        if(num_1<=-width_1*3){
+            num_1=0;
+            $('#friend-1').css("left",0+"px")  
+        }
+    })
     $btn_l.onclick=function(){
         if(num_1<0){
            num_1+=width_1;
