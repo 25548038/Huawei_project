@@ -2,6 +2,7 @@ define(['jquery'], function ($, public) {
     let $btn_left, $btn_right, $swi_box, $del, $inpt, $hua,$box,showData,$shopNum,$shop_list,$inptlist,$manoy,$Subtotal,$Selection,num = 0,$modal,Total=0,$addshop,$shul;
     return {
         init() {
+            
             $box = $('#content');
             this.getCarData();
             $btn_left = $('.left');

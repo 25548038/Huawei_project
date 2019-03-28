@@ -1,0 +1,135 @@
+body{
+    background: #f2f2f2;
+}
+.head-background{
+    height: 68px;
+    background: #333333;
+}
+.head_center{
+margin: 0 auto;
+height: 68px;
+width: 960px;
+}
+.main-logo{
+    float: left;
+    padding-top: 15px;
+}
+.website-name {
+    color: white;
+    padding-top: 19px;
+    b{
+        padding-left: 15px;
+        font-size: 18px;
+    }
+}
+.reg-body{
+    min-height: 400px;
+    width: 960px;
+    background: white;
+    margin: 68px auto;
+    position: relative;
+}
+.regCon{
+    width: 420px;
+    margin: 0 auto;
+}
+.go-login{
+    float: right;
+    position: absolute;
+    top: -25px;right: 5px;
+}
+.reg{
+    display: inline-block;
+    width: 130px;
+    height: 39px;
+    background: #999;
+    color: white;
+    position: absolute;
+    top: -40px;
+    i{
+        padding-right: 15px;
+        font-size: 24px;
+    }
+}
+.reg-phone{
+    cursor: pointer;
+}
+.reg-email{
+    left: 140px;    
+    cursor: pointer;
+}
+.reg-redBtn{
+    background: rgb(180, 16, 16);
+}
+
+// 电话注册
+.form-group{
+    margin-bottom: 20px;
+    height: 50px;
+    background: rgb(241, 239, 239);
+    border-radius: 20px;
+    box-shadow:#ccc 0px 0px 1px 1px;
+    // border: 1px solid rgb(201, 197, 197);
+}
+.form-box,.form-box11{
+    padding-top: 20px;
+}
+.form-control{
+    border: 0 ;
+    box-shadow: none !important;
+    outline:none ;
+    width: 287px;
+    float: right;
+    margin: 7px 10px 0 0;
+    background: rgb(241, 239, 239);
+}
+label{
+    border-right: 1px solid rgb(201, 197, 197);
+    padding: 13px 0;
+    line-height: 24px;
+    text-align: center;
+    width: 123px;
+    letter-spacing: 5px;
+    margin: 0 !important;
+    font-weight: 500;
+}
+.btn-submit{
+    margin-left: 92px;
+    border-radius: 20px;
+    width: 220px;
+    height: 40px;
+    background:rgb(180, 16, 16); 
+    margin-bottom: 20px;
+}
+.btn-submit:hover{
+background:rgb(199, 19, 19) !important; 
+}
+
+
+//正则验证
+.bg-succ{
+    box-shadow:green 0px 0px 1px 1px;
+    
+    background: rgb(241, 239, 239);
+    border-radius: 20px;
+    
+}
+.bg-dan{
+    height: 20px;
+    width: 100%;
+    text-align: center;
+    background: rgb(248, 153, 153);
+    border-radius: 10px;
+}
+
+// 尾部
+.wp1 {
+    width: 100%;
+    margin: 0px auto;
+}
+.ft {
+    margin: 30px auto;
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+}

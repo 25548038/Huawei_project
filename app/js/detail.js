@@ -33,17 +33,17 @@ var Detailspage=(function(){
                 $('.2cleara').css("border-color","#f0f0f0");
                 $('.2a_2').css("border-color","red")
             })
-            let num=1;
+            let num=0;
             $('#pro-quantity-plus').on('click',function(){
                 num++;
                 $('#change_num').val(num);
             })
             $('#pro-quantity-minus').on('click',function(){
                 num--;
-                if(num<=1){
-                    $('#change_num').val(1);
-                    num=1;
-                }else if(num>1){
+                if(num<=0){
+                    $('#change_num').val(0);
+                    num=0;
+                }else if(num>0){
                    $('#change_num').val(num); 
                 }
                 
@@ -80,6 +80,15 @@ var Detailspage=(function(){
                 }
                 localStorage.shopData = JSON.stringify(shopList);
                 alert("添加成功")
+                let numb=0;
+                let $localShopd=document.querySelector('.local-shopd');
+                let $gwc=document.querySelector('.gwc_1');
+                var josn_wj=JSON.parse(localStorage.shopData);
+                for(var i = 0; i < josn_wj.length; i++){
+                    numb+=josn_wj[i].num;
+                }
+                $localShopd.innerHTML=numb;
+                console.log(josn_wj.length,numb)
             })
         },
     }

@@ -30,4 +30,12 @@ window.onload=function(){
             $back_top.style.display="none"; 
         }
     }
+    let numb=0;
+    let $localShopd=document.querySelector('.local-shopd');
+    let $gwc=document.querySelector('.gwc_1');
+    var josn_wj=JSON.parse(localStorage.shopData);
+    for(var i = 0; i < josn_wj.length; i++){
+        numb+=josn_wj[i].num;
+    } 
+    $localShopd.innerHTML=numb;
 }

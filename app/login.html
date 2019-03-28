@@ -1,12 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>登录</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
 </head>
-<body>
-   
+
+<body class="login">
+    <!-- 头部  -->
+    <div class="customer-header">
+        <div class="head_center">
+            <a href="index.html">
+                <div class="main-logo adHeadPicContainer"> <img src="images/HUAWEI.png" class="adHeadPic"> </div>
+                <div class="website-name"> <b class="adHeadT">|</b><b class="adHeadTitle">华为商城</b> </div>
+            </a>
+        </div>
+    </div>
+    <!-- 广告位 -->
+    <span>
+        <div
+            style="background: #FFFBE4;display: block;height: 40px;text-align: center;line-height: 40px;color: #989898;">
+            <span class="prompt_icon" id="ad1">依据《网络安全法》，为保障您的帐号安全与正常使用，请尽快绑定您的手机号，感谢您的理解及支持！</span></div>
+    </span>
+    <!--登录 -->
+    <div class="login_bg" id="loginform" >
+        <div style="background: url('images/login_default_bg.png') no-repeat;width: 1130px;margin: 0 auto;" class="g login_adBg">
+            <div class="loginRight">
+               <!-- 内容 -->
+               <div>
+                    <div class="box">
+                            <div class="userLogin">
+                                <div class="header">
+                                    <span class="login-h login-left">账号登入</span>
+                                    <span class="login-h login-right">扫码登入</span>
+                                </div>
+                                <form method="POST" action="server/login.php"  class="login-form" style="display:block" >
+                                    <div class="form-con">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <input required type="text" id="phone" name="phone" placeholder="手机号/邮箱地址/华为号">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input required type="password" id="password" name="password" placeholder="密码">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="href-phone">
+                                                        <em class="iconfont iconshouji"></em>
+                                                        <a href="" class="href-phone">短信验证码登入</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <button class="btn btn-danger btn-lg btn-block login-btn">登入</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="login-option">
+                                                    <a href="" class="loginOption">
+                                                        <input form="" type="checkbox">记住华为账号
+                                                    </a>
+                                                    <a href="#" class="more">更多</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="links">
+                                                    <a href="reg.html" class="regist">注册账号</a>
+                                                    <a href="reg.html" class="forgot">忘记密码？</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="thirdLoginBlock">
+                                        <div class="thirdLintTitle">其他方式登入</div>
+                                        <div class="thirdLoginDiv">
+                                            <span class="third-btn iconfont iconweibo"></span>
+                                            <span class="third-btn iconfont iconanzhuo"></span>
+                                            <span class="third-btn iconfont iconweixin weixin"></span>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="login-hiden" style="display:none">
+                                    <div class="login-img">
+                                        <img class="login-qr-code" src="images/qrCode-over-time.png">
+                                        <div class="login-help"><img src="images/qrCode-help.png" alt=""></div>
+                                    </div>
+                                    <p class="login-text">使用<i>华为移动服务APP</i>扫一扫</br>
+                                        若您使用华为手机，请进入“设置”>“华为帐号”扫码登录。</p>
+                                </div>
+                            </div>
+                        </div>
+               </div>
+            </div>
+        </div>
+    </div>
+    <!-- 底部  -->
+    <div class="customer-footer">
+        <div class="ft">
+            <!--授权  -->
+            <div class="warrant-area">
+                <p style="text-align: center;line-height:20px;height:20px;">
+                    <a href="https://hwid1.vmall.com/AMW/portal/agreements/userAgreement/zh-cn_userAgreement.html?version=china&amp;countryCode=cn"
+                        class="rule" target="_blank">华为帐号用户协议</a>
+                    <em class="foot_em">|</em>
+                    <a href="https://hwid1.vmall.com/AMW/portal/agreements/accPrivacyStatement/zh-cn_accPrivacyStatement.html?version=china"
+                        class="rule" target="_blank">关于华为帐号与隐私的声明</a>
+                    <span class="foot_em"><em style="font-style: normal">|</em> <a style="padding:0 10px;"
+                            target="blank"
+                            href="https://hwid1.vmall.com/AMW/portal/faq/zh-cn_faq.html?version=china&amp;countryCode=cn&amp;lang=zh-cn">常见问题</a></span>
+                </p>
+                <p style="text-align: center;line-height: 12px;height:12px;margin-top: 10px ">
+                    Copyright&nbsp;©&nbsp;2011-2019&nbsp;&nbsp;华为软件技术有限公司&nbsp;&nbsp;版权所有&nbsp;&nbsp;保留一切权利&nbsp;&nbsp;苏B2-20070200号&nbsp;|&nbsp;苏ICP备09062682号-9
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.js"></script>
+    <script src="js/login.js"></script>
 </body>
+
 </html>
