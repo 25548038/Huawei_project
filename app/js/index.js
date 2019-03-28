@@ -5,6 +5,14 @@ var user_main=(function(){
             if($cook[1]!=""){
                 $('.ho-t').text("欢迎你！"+$cook[1]);
             }
+            if($cook[1]==undefined){
+                $('.ho-t').text('');
+                let htmlmore=`<div class="ho-t">
+                您好!&nbsp;请 <a href="login.html">登录&nbsp;</a>/
+                <a href="reg.html">&nbsp;注册</a>
+            </div>`
+            $('.ho-t').append(htmlmore);
+            }
             this.event();
         },
         event(){
