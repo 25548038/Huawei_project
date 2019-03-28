@@ -36,15 +36,16 @@
                 }
             },
             header() {
-                if(JSON.parse(localStorage.shopData)!=""){
+               if((JSON.parse(localStorage.shopData)[0].num)!==0){
                     let numb = 0;
-                let $localShopd = document.querySelector('.local-shopd');
-                var josn_wj = JSON.parse(localStorage.shopData);
-                for (var i = 0; i < josn_wj.length; i++) {
-                    numb += josn_wj[i].num;
-                }
-                $localShopd.innerHTML = numb;
-                }
+                    let $localShopd = document.querySelector('.local-shopd');
+                    var josn_wj = JSON.parse(localStorage.shopData);
+                    for (var i = 0; i < josn_wj.length; i++) {
+                        numb += josn_wj[i].num;
+                    }
+                    $localShopd.innerHTML = numb;
+               }
+                
                 
             }
         }
