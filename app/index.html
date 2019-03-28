@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="css/public.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.css">
-    <script src="js/index.js"></script>
 </head>
+
 
 <body>
     <div class="shortcut1"></div>
@@ -1017,15 +1017,16 @@
     <script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/L_slide.js"></script>
     <script src="js/public.js"></script>
+    <script src="js/index.js"></script>
     <script>
         $('.shortcut1').load('public.html .shortcut',function(){
-            $.getScript("js/public.js")
+            $.getScript('js/public.js')
         })
         $('.hungBar1').load('public.html .hungBar',function(){
-            $.getScript("js/public.js")
+            $.getScript('js/public.js')
         })
         $('.footer').load('public.html ._maxfoot',function(){
-            $.getScript("js/public.js")
+            $.getScript('js/public.js')
         })
         var mySwiper = new Swiper('.swiper-container', {
             loop: true,
@@ -1041,7 +1042,7 @@
             },
         });
 
-        index.init();
+        user_main.init();
     </script>
     <script>
         $(function(){
