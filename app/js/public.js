@@ -1,14 +1,11 @@
 window.onload=function(){
     let $friend_l=document.querySelector('#friend-1');
-    let $friend_2=document.querySelector('#friend-2');
     let $btn_l=document.querySelector('._btn-l');
     let $btn_r=document.querySelector('._btn-r');
     let $back_top=document.querySelector('#back_top');
     const width_1=158;
-    let num_1=0;    
-    console.log($btn_l);
-    
-    $btn_l.onclick = function(){
+    let num_1=0;   
+    $btn_l.onclick=function(){
         if(num_1<0){
            num_1+=width_1;
            $friend_l.style.left=num_1+'px';  
