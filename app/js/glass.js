@@ -92,16 +92,14 @@ var glass = (function () {
             }
         },
         showImage: function (index) {
-            console.log(index);
             for (var i = 0; i < this.$liAll.length; i++) {
-                this.$liAll[i].className = ''
+                this.$liAll[i].className = '';
             }
             this.$liAll[index].className = 'active';
             // 修改对应的图片地址
             var src = this.$liAll[index].querySelector('img').getAttribute('src');
             this.$showImage.querySelector('img').src = src.replace('small', 'big');
             this.$showBigImage.querySelector('img').src = src.replace('small', 'largest');
-            console.log(src);
         }
     }
 
