@@ -223,8 +223,13 @@
     <script src="js/detail.js"></script>
     <script>
         $('.shortcut1').load('public.html .shortcut')
-        $('.hungBar1').load('public.html .hungBar')
-        $('.footer').load('public.html ._maxfoot')
+        $('.hungBar1').load('public.html .hungBar',function(){
+            $publicMain.scro();
+            $publicMain.header();
+        })
+        $('.footer').load('public.html ._maxfoot',function(){
+            $publicMain.footer();
+        })
         glass.init(2)
         Detailspage.init();
     </script>

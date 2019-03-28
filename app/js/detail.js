@@ -1,5 +1,6 @@
 var Detailspage=(function(){
     let shopList=[];
+    
     return{
         init(){
             this.event();
@@ -43,7 +44,7 @@ var Detailspage=(function(){
                 if(num<=1){
                     $('#change_num').val(1);
                     num=1;
-                }else if(num>1){
+                }else if(num>0){
                    $('#change_num').val(num); 
                 }
                 
@@ -80,6 +81,15 @@ var Detailspage=(function(){
                 }
                 localStorage.shopData = JSON.stringify(shopList);
                 alert("添加成功")
+                let numb=0;
+                let $localShopd=document.querySelector('.local-shopd');
+                let $gwc=document.querySelector('.gwc_1');
+                var josn_wj=JSON.parse(localStorage.shopData);
+                for(var i = 0; i < josn_wj.length; i++){
+                    numb+=josn_wj[i].num;
+                }
+                $localShopd.innerHTML=numb;
+                console.log(josn_wj.length,numb)
             })
         },
     }

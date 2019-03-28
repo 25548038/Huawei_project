@@ -3,6 +3,7 @@ define(['jquery'], function ($, public) {
         $modal,$shul,$addshop,RecommendData;
     return {
         init() {
+            
             $box = $('#content');
             this.getCarData();
             $btn_left = $('.left');
