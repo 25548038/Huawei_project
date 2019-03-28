@@ -297,7 +297,7 @@ define([
         
             $.fn.zPager.defaults = {
                 totalData: 10, //数据总条数
-                pageData: 10, //每页数据条数
+                pageData: 20, //每页数据条数
                 pageCount: 0, //总页数
                 current: 1, //当前页码数
                 pageStep: 5, //当前可见最多页码个数

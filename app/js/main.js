@@ -5,7 +5,7 @@ require.config({
     }
 })
 
-require(['jquery', 'loading', 'public'], function($,loading,public){
+require(['jquery', 'loading', 'public-1'], function($,loading,public){
     loading.init();
     public.init();
 })

@@ -343,3 +343,18 @@ $ipt-bg:#f0f0f0;
         right: 20px;
     }
 }
+.show-tips{
+    position: relative;
+    background: #fff;
+    z-index: 500;
+    &>li{
+        height: 30px;
+        line-height: 30px;
+        padding: {
+            left: 20px;
+        }
+        &:hover{
+            background:#e4e4e4;
+        }
+    }
+}

@@ -1,5 +1,5 @@
 define(['jquery'], function($,public) {
-    let $nav,$navlist,$nav_box,$sub_box,$sort,$sortlist,$txt,$btn,$swp,$recommend;
+    let $nav,$navlist,$nav_box,$sub_box,$sort,$sortlist,$txt,$btn,$swp,$recommend,$shul;
     return{
         init(){
             $nav = $('.nav');
@@ -9,10 +9,12 @@ define(['jquery'], function($,public) {
             $sort = $('#sort-type')
             $sortlist = $sort.children('li');
             $txt = $('.txt');
-            $btn = $('.btn');
+            $btn = $('.btn'); 
             $swp = $('.swp');
             $recommend = $('.recommend');
+            $shul = $('.shul')
             this.event();
+            this. getCarData()
             
         },
         event(){
@@ -49,8 +51,29 @@ define(['jquery'], function($,public) {
                 $swp.html('['+ val + ']');
                 }
               });
+            $txt.on('focus',function(){
+                  $recommend.css('display','none')
+              })
+            $txt.on('blur',function(){
+                if($txt.val()==''){
+                    $recommend.css('display','block')
+                }
+            })
 
-        }
+        },
+        shul(data){
+            let shuli  = 0;
+            for(let i =0;i<data.length;i++){
+              shuli += data[i].num;
+              $shul.html(shuli)
+            }
+        },
+        getCarData() {
+            var data = localStorage.shopData;
+            this.shul(JSON.parse(data));
+            
+            }
+        
     }
     
 });

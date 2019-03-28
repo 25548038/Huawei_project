@@ -20,7 +20,6 @@ define(['jquery'], function ($, public) {
             $shul = $('.shul')
             this.event(showData);
             this.shul(showData)
-            console.log($shul)
         },
         event(showData) {
             let _this = this;
@@ -37,16 +36,18 @@ define(['jquery'], function ($, public) {
                 $hua[i].onclick = (function () {
                     let flag;
                     return function () {
-                        Total = $($Subtotal[i]).html().replace(/[^0-9]/ig,'') -0;
-                    
+                        jiage = $($Subtotal[i]).html().replace(/[^0-9]/ig,'') -0;
+                        console.log(Total)
                         flag = $($hua[i]).hasClass('checked');
                         if (!flag) {
+                            Total +=jiage
                             $(this).addClass('checked'); 
                             num += showData[i].num ;
                             $('.Total').html('¥&nbsp;'+Total);  
                         } else {
+                            // debugger
                             $(this).removeClass('checked');
-                            Total -= Total;
+                            Total -= jiage;
                             num -=showData[i].num
                             $('.Total').html('¥&nbsp;'+Total);
                         }
@@ -188,6 +189,7 @@ define(['jquery'], function ($, public) {
             $addshop.on('click',function(){
                 alert(1)
                 _this.shopData();
+                _this.insertData();
             })
         },
         //获取数据
@@ -360,32 +362,32 @@ define(['jquery'], function ($, public) {
                 async: false,
                 dataType : 'json',
                 success: function(data){
-                    _this.addShop(data.data)
+                    _this.addShopCat(data.data)
                     console.log(data.data)
                     return data;
                 }
             })
         },
-        // addShop(data){
-        //     let shopData = localStorage.shopData|| '[]' ;
-        //     var flge = true;
-        //     shopData = JSON.parse(shopData);
-        //     for(var i = 0; i < shopData.length; i++){
-        //         console.log(data[i].id,shopData[0].id)
-        //         if(shopData[i].id == data[i].id){
-        //             shopData[i].num += data[i].num;
-        //             flge = false;
-        //             break;
-        //         }
-        //     }
-        //     if(flge){
-        //         shopData.push(...data);
-        //     }
-        //     console.log(shopData,...data)
-        //     localStorage.shopData = JSON.stringify(shopData);
-        //     // alert('加入成功');
+        addShopCat(data){
+            console.log(data)
+            let shopData = localStorage.shopData|| '[]' ;
+            var flge = true;
+            shopData = JSON.parse(shopData);
+            for(var i = 0; i < shopData.length; i++){
+                console.log(data[0].id)
+                if(shopData[i].id == data[0].id){
+                    shopData[i].num += data[0].num;
+                    flge = false;
+                    break;
+                }
+            }
+            if(flge){
+                shopData.push(...data);
+            }
+            localStorage.shopData = JSON.stringify(shopData);
+            // alert('加入成功');
 
-        // }
+        },
         shul(data){
             let shuli  = 0;
             for(let i =0;i<data.length;i++){
