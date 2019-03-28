@@ -106,7 +106,9 @@ define(['jquery'], function ($, public) {
                  _this.addShop();
                  console.log(showData.length)
                  if(index == showData.length){ 
-
+                    showData.splice(0, index);
+                    _this.addShop();
+                    _this.insertData(showData);
                     console.log(1234564156)
                  }
                  console.log(index)
@@ -187,9 +189,8 @@ define(['jquery'], function ($, public) {
                     this.shul(showData)
             })
             $addshop.on('click',function(){
-                alert(1)
                 _this.shopData();
-                _this.insertData();
+                // _this.insertData();
             })
         },
         //获取数据
@@ -344,7 +345,7 @@ define(['jquery'], function ($, public) {
                 let html = `<div class="sc-empty">
                 <i></i>
                 <p>您的购物车里什么也没有哦~</p>
-                <a href="#" target="_blank" rel="noopener noreferrer">去逛逛</a>
+                <a href="index.html" rel="noopener noreferrer">去逛逛</a>
             </div>`;
             $box.append(html)
 
