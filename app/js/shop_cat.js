@@ -358,7 +358,7 @@ define(['jquery'], function ($, public) {
         shopData(){
             let _this = this
             $.ajax({
-                url:"../json/shopData.json",
+                url:"./json/shopData.json",
                 type:"get",
                 async: false,
                 dataType : 'json',
