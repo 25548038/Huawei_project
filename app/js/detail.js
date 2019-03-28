@@ -33,16 +33,16 @@ var Detailspage=(function(){
                 $('.2cleara').css("border-color","#f0f0f0");
                 $('.2a_2').css("border-color","red")
             })
-            let num=0;
+            let num=1;
             $('#pro-quantity-plus').on('click',function(){
                 num++;
                 $('#change_num').val(num);
             })
             $('#pro-quantity-minus').on('click',function(){
                 num--;
-                if(num<=0){
-                    $('#change_num').val(0);
-                    num=0;
+                if(num<=1){
+                    $('#change_num').val(1);
+                    num=1;
                 }else if(num>0){
                    $('#change_num').val(num); 
                 }
