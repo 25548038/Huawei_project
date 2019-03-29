@@ -69,7 +69,7 @@ define(['jquery'], function($,public) {
             }
         },
         getCarData() {
-            var data = localStorage.shopData;
+            var data = localStorage.shopData || '[]';
             this.shul(JSON.parse(data));
             
             }

@@ -350,8 +350,7 @@ define(['jquery'], function ($, public) {
             flag = true;
             if(data == null){
                 flag = false;
-            }
-            
+            }            
             if(flag){
                 for (let i = 0; i < data.length; i++) {
                     shuli += data[i].num;
@@ -361,18 +360,25 @@ define(['jquery'], function ($, public) {
         },
         countMoney() {
             // 判断选中的文本框
-            var shopToalCount = 0;
-            var shopTotalMoney = 0; 
-                        for(let i=0;i<showData.length;i++){
-                            if(showData[i].checked){
-                                shopToalCount += showData[i].num;
-                                shopTotalMoney += showData[i].num * showData[i].money;
+            let flag = true;
+            if(localStorage.length==0){
+                flag = false;
+            }  
+            if(flag){
+
+                var shopToalCount = 0;
+                var shopTotalMoney = 0; 
+                            for(let i=0;i<showData.length;i++){
+                                if(showData[i].checked){
+                                    shopToalCount += showData[i].num;
+                                    shopTotalMoney += showData[i].num * showData[i].money;
+                                }
                             }
-                        }
-                        
-                
-            $('.total').children('i').html(shopToalCount);
-            $('.Total').html('&nbsp¥&nbsp;' + shopTotalMoney);
+                            
+                    
+                $('.total').children('i').html(shopToalCount);
+                $('.Total').html('&nbsp¥&nbsp;' + shopTotalMoney);
+            }
         },
         Recommend(data){
            for(let attr in data){

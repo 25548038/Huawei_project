@@ -37,7 +37,6 @@
             },
             header() {
                 let flag = true;
-                console.log(localStorage.length==0)
                 if(localStorage.length==0){
                     flag = false;
                 }  
