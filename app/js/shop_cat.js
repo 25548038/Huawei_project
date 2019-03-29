@@ -74,18 +74,17 @@ define(['jquery'], function ($, public) {
             $modal.on('click', '.btn-del', function () {
                 var self = $(this),
                     index = self.attr('attr-id');
-                showData.splice(index, 1);
-                _this.insertData(showData);
-                // 更新本地数据
-                _this.addShop();
-                console.log(showData.length)
-                if (index == showData.length) {
+                    if (index == showData.length) {
                     showData.splice(0, index);
                     _this.addShop();
                     _this.insertData(showData);
-                    console.log(1234564156)
+                    _this.shul(showData)
                 }
-                console.log(index)
+                    showData.splice(index, 1);
+                    // 更新本地数据
+                    _this.addShop();
+                    _this.insertData(showData);
+                    _this.shul(showData)
             })
             //加商品
             $box.on('click', '.plus', function () {
@@ -94,6 +93,7 @@ define(['jquery'], function ($, public) {
                 _this.addShop();
                 _this.insertData(showData);
                 _this.countMoney();
+                _this.shul(showData)
 
             })
             //减商品
@@ -103,6 +103,7 @@ define(['jquery'], function ($, public) {
                 _this.insertData(showData);
                 _this.addShop();
                 _this.countMoney();
+                _this.shul(showData)
 
             })
             //文本框
@@ -117,9 +118,7 @@ define(['jquery'], function ($, public) {
             })
             //加入购物车
             $addshop.on('click', '.addshop', function () {
-                let index = $(this).index('.addshop')
-                console.log(RecommendData)
-                console.log(index)
+                let index = $(this).index('.addshop');
                 // _this.insertData();
                 _this.addShopCat(RecommendData[index])
             })
@@ -328,7 +327,6 @@ define(['jquery'], function ($, public) {
             })
         },
         addShopCat(data) {
-            console.log(data)
             let shopData = localStorage.shopData || '[]';
             var flge = true;
             shopData = JSON.parse(shopData);
@@ -346,14 +344,15 @@ define(['jquery'], function ($, public) {
             // alert('加入成功');
         },
         shul(data) {
+            console.log(data)
             let shuli = 0,
             flag = true;
             if(data == null){
                 flag = false;
-            }
-            
+            }            
             if(flag){
                 for (let i = 0; i < data.length; i++) {
+                    console.log(data[i].num)
                     shuli += data[i].num;
                     $shul.html(shuli)
                 }
@@ -361,18 +360,25 @@ define(['jquery'], function ($, public) {
         },
         countMoney() {
             // 判断选中的文本框
-            var shopToalCount = 0;
-            var shopTotalMoney = 0; 
-                        for(let i=0;i<showData.length;i++){
-                            if(showData[i].checked){
-                                shopToalCount += showData[i].num;
-                                shopTotalMoney += showData[i].num * showData[i].money;
+            let flag = true;
+            if(localStorage.length==0){
+                flag = false;
+            }  
+            if(flag){
+
+                var shopToalCount = 0;
+                var shopTotalMoney = 0; 
+                            for(let i=0;i<showData.length;i++){
+                                if(showData[i].checked){
+                                    shopToalCount += showData[i].num;
+                                    shopTotalMoney += showData[i].num * showData[i].money;
+                                }
                             }
-                        }
-                        
-                
-            $('.total').children('i').html(shopToalCount);
-            $('.Total').html('&nbsp¥&nbsp;' + shopTotalMoney);
+                            
+                    
+                $('.total').children('i').html(shopToalCount);
+                $('.Total').html('&nbsp¥&nbsp;' + shopTotalMoney);
+            }
         },
         Recommend(data){
            for(let attr in data){

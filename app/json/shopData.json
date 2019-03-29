@@ -5,7 +5,7 @@
             "money": 2199,
             "img" : "images/1.png",
             "tag" : "bk-tag.png",
-            "num" : 10 ,
+            "num" : 1 ,
             "checked" : false
         },{
             "title": "华为10 GT游戏加速 AIS手持夜景 AI摄影手机 6GB+64GB",
@@ -13,7 +13,7 @@
             "money": 1199,
             "img" : "images/2.png",
             "tag" : "bk-tag.png",
-            "num" : 10 ,
+            "num" : 1 ,
             "checked" : false
         }
     ]

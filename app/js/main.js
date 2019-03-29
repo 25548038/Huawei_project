@@ -18,7 +18,7 @@ require(['jquery', 'search'], function ($, search) {
 })
 require(['jquery','fy'],function($){
 	$("#pager").zPager({
-		url:'../json/pagedata.json',
+		url:'./json/pagedata.json',
 		htmlBox: $('.pro-list'),
         btnShow: true,
         pageData: 10
