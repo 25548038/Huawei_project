@@ -16,17 +16,13 @@ require(['jquery', 'shop_cat'], function ($, swiper) {
 require(['jquery', 'search'], function ($, search) {
     search.init()
 })
-// require(['jquery','public'], function ($,public) {
-//     public.init()
-// })
 require(['jquery','fy'],function($){
 	$("#pager").zPager({
 		url:'../json/pagedata.json',
 		htmlBox: $('.pro-list'),
-		btnShow: false
+        btnShow: true,
+        pageData: 10
 	});
-		
-	
 })
 
 require(['jquery', 'api'],function($,ajax){

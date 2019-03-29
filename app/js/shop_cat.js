@@ -346,10 +346,17 @@ define(['jquery'], function ($, public) {
             // alert('加入成功');
         },
         shul(data) {
-            let shuli = 0;
-            for (let i = 0; i < data.length; i++) {
-                shuli += data[i].num;
-                $shul.html(shuli)
+            let shuli = 0,
+            flag = true;
+            if(data == null){
+                flag = false;
+            }
+            
+            if(flag){
+                for (let i = 0; i < data.length; i++) {
+                    shuli += data[i].num;
+                    $shul.html(shuli)
+                }
             }
         },
         countMoney() {
