@@ -316,7 +316,6 @@ define(['jquery'], function ($, public) {
             $.ajax({
                 url: "./json/shopData.json",
                 type: "get",
-                async: false,
                 dataType: 'json',
                 success: function (data) {
                     // _this.addShopCat(data)

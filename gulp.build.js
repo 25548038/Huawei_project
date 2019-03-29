@@ -23,7 +23,7 @@ gulp.task('miniJs', function () {
     }))
     .pipe(uglify())
     .pipe(rev())
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('dome'))
     .pipe(rev.manifest())
     .pipe(gulp.dest('rev/js')) 
 })
