@@ -37,7 +37,8 @@
             },
             header() {
                 let flag = true;
-                if(localStorage.shopData === '[]'){
+                console.log(localStorage.length==0)
+                if(localStorage.length==0){
                     flag = false;
                 }  
                if(flag) {
