@@ -35,7 +35,6 @@ var glass = (function () {
             this.$ulbox.onclick = function (ev) {
                 ev = ev || window.event;
                 var target = ev.target || ev.srcElement;
-                console.log(target.nodeName);
                 // 点击时，真正触发的为图片。
                 if (target.nodeName === 'IMG') {
                     // 获取li的索引 =》target.parentNode.index

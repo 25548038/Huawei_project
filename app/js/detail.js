@@ -89,7 +89,6 @@ var Detailspage=(function(){
                     numb+=josn_wj[i].num;
                 }
                 $localShopd.innerHTML=numb;
-                console.log(josn_wj.length,numb)
             })
         },
     }

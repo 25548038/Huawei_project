@@ -30,7 +30,6 @@ var baidu = (function () {
                 _this.hidden();
             }
             $ulbox.onclick = function (e) {
-                // console.log(1);
                 if(e.target.nodeName === 'LI') {
                     $input.value = e.target.innerHTML;   
                 }

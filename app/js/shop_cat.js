@@ -344,7 +344,6 @@ define(['jquery'], function ($, public) {
             // alert('加入成功');
         },
         shul(data) {
-            console.log(data)
             let shuli = 0,
             flag = true;
             if(data == null){
@@ -352,7 +351,6 @@ define(['jquery'], function ($, public) {
             }            
             if(flag){
                 for (let i = 0; i < data.length; i++) {
-                    console.log(data[i].num)
                     shuli += data[i].num;
                     $shul.html(shuli)
                 }
